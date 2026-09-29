@@ -46,11 +46,39 @@ test(
     });
     const folder = path.join(root, "test-results");
     await fs.mkdir(folder, { recursive: true });
+    const headingFonts = [];
+    const cdp = await page.context().newCDPSession(page);
+    await cdp.send("DOM.enable");
+    await cdp.send("CSS.enable");
+    const checkKoreanFonts = async (selector) => {
+      await page.evaluate(() => document.fonts.ready);
+      const { root: documentNode } = await cdp.send("DOM.getDocument");
+      const { nodeId } = await cdp.send("DOM.querySelector", {
+        nodeId: documentNode.nodeId,
+        selector,
+      });
+      const { fonts } = await cdp.send("CSS.getPlatformFontsForNode", {
+        nodeId,
+      });
+      assert.ok(fonts.length > 0);
+      assert.ok(
+        fonts.every(
+          (font) => font.isCustomFont && font.familyName.includes("Pretendard"),
+        ),
+        JSON.stringify(fonts),
+      );
+      headingFonts.push({
+        path: new URL(page.url()).pathname,
+        selector,
+        fonts,
+      });
+    };
     for (const [lang, route] of [
       ["en", ""],
       ["ko", "ko/"],
     ]) {
       await page.goto(base + route);
+      if (lang === "ko") await checkKoreanFonts("#features h2");
       assert.equal(await page.locator("html").getAttribute("lang"), lang);
       const audit = [];
       for (const width of [320, 390, 768, 1024, 1440]) {
@@ -144,6 +172,7 @@ test(
         lang === "en" ? "ko" : "en",
       );
       await page.goto(base + route + "licenses/");
+      if (lang === "ko") await checkKoreanFonts(".legal-main h1");
       await page.setViewportSize({ width: 320, height: 900 });
       assert.ok(
         await page.evaluate(
@@ -194,6 +223,7 @@ test(
           consoleErrors: errors,
           failedRequests: failed,
           externalRequests: external,
+          headingFonts,
         },
         null,
         2,

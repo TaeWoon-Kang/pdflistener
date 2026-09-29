@@ -5,9 +5,9 @@ The CI workflow uses Node.js 24 and Playwright's pinned Chromium on Ubuntu.
 
 Local results:
 
-- Six Node tests pass: four generated pages, links at a `/pdflistener/` project prefix,
+- Seven Node tests pass: four generated pages, links at a `/pdflistener/` project prefix,
   release configuration, complete translation keys, PCM audio, public-release copy,
-  deployment allowlist and the local server's byte-range/path isolation behavior.
+  deployment allowlist, original font/notice integrity with negative cases, and the local server's byte-range/path isolation behavior.
 - Real Chrome integration passes for English and Korean at 320, 390, 768, 1024 and
   1440px, with no horizontal page overflow.
 - Playback, pause, jumping to a sentence, speed changes, paper-mode illustration,
@@ -17,12 +17,15 @@ Local results:
   both home pages at 390/1440px and both license pages at 320px.
 - No application console errors, failed local requests or external page requests
   were observed in the integration test.
-- Desktop/mobile screenshots were visually reviewed. The capture helper waits
+- Chrome’s rendered-font inspection confirms `Pretendard SemiBold`, `isCustomFont: true`,
+  for every glyph in the requested Korean feature heading and the Korean legal heading.
+  The original WOFF2 and complete OFL notice match pinned upstream bytes.
+- Desktop/mobile screenshots were visually reviewed after the Korean typography change. The capture helper waits
   for fonts, the lazy app screenshot and a paint before capturing a full page;
   this fixed stale/repeated compositor content seen in an initial Chrome capture.
 - `npm audit --audit-level=high` reports zero vulnerabilities for the two pinned
   development packages. Neither package is copied into the public output.
-- Output is 14 static files, about 1.15MB including the 16.9-second WAV sample.
+- Output is 17 static files, about 1.95MB including the 16.9-second WAV sample.
   The WAV uses original example text, rendered by the existing app with Kokoro Heart.
 
 The checked product baseline is PDF Listener 0.1.1: Apple Silicon, macOS 26+,

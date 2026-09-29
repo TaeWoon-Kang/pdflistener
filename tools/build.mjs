@@ -3,6 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import config from "../site.config.mjs";
 import { render } from "../src/template.mjs";
+import { fontFiles, verifyFonts } from "./fonts.mjs";
 export const root = fileURLToPath(new URL("../", import.meta.url));
 export function validateConfig(value) {
   const https = (value) => {
@@ -35,6 +36,8 @@ export function validateConfig(value) {
 }
 export async function build() {
   validateConfig(config);
+  const fonts = path.join(root, "assets/fonts");
+  await verifyFonts(fonts);
   const out = path.join(root, "dist");
   await fs.rm(out, { recursive: true, force: true });
   await fs.mkdir(out, { recursive: true });
@@ -59,6 +62,12 @@ export async function build() {
     await fs.copyFile(
       path.join(root, "src", name),
       path.join(out, "assets", name),
+    );
+  await fs.mkdir(path.join(out, "assets/fonts"), { recursive: true });
+  for (const name of [...fontFiles, "provenance.json"])
+    await fs.copyFile(
+      path.join(fonts, name),
+      path.join(out, "assets/fonts", name),
     );
   const routes = [
     ["en", false, ""],

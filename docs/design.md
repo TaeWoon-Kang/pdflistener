@@ -4,14 +4,16 @@ An English/Korean promotional website for PDF Listener, independent of the app.
 References: the existing white/tan headphone icon and actual dark desktop screen.
 Use those assets and product behavior as evidence; no borrowed third-party design.
 
-Visual direction: warm paper, dark ink, muted brown, editorial serif headlines,
+Visual direction: warm paper, dark ink, muted brown, editorial serif English headlines, modern Pretendard Korean headings,
 fine rules and restrained corners. A dark interactive reader illustrates the
 product. An actual desktop screenshot is clearly distinguished from that demo.
 The primary action is listening to an original English sample. No fabricated
 testimonials, performance figures, launch dates or download links.
 
 English and Korean have separate static URLs, titles, descriptions and hreflang.
-Pages must remain useful without JavaScript. All assets and fonts are local.
+Pages must remain useful without JavaScript. Assets are self-hosted. Korean h1/h2
+use original Pretendard SemiBold (OFL-1.1); other text uses device-installed fonts.
+Keep the original font and complete notices together with pinned provenance.
 No signup, file upload, analytics, external embeds or server API is needed.
 
 At 320, 390, 768, 1024 and 1440px: no horizontal overflow, keyboard-accessible

@@ -1,0 +1,26 @@
+{
+  "family": "Pretendard",
+  "style": "SemiBold",
+  "weight": 600,
+  "license": "OFL-1.1",
+  "project": "https://github.com/orioncactus/pretendard",
+  "upstreamCommit": "7aeb0698819be2b4097dae8ec8fe6a795e5cf3ae",
+  "fontRelease": "v1.3.9",
+  "note": "Unmodified original WOFF2; current upstream copyright and license notices from the same pinned commit. No subsetting or conversion.",
+  "files": [
+    {
+      "file": "Pretendard-SemiBold.woff2",
+      "source": "https://raw.githubusercontent.com/orioncactus/pretendard/7aeb0698819be2b4097dae8ec8fe6a795e5cf3ae/packages/pretendard/dist/web/static/woff2/Pretendard-SemiBold.woff2",
+      "bytes": 785856,
+      "sha256": "c863f76a7de5c1ddc1ed8b2fa794964530774592c4f31407a84e2a2ae93f17f0",
+      "gitBlob": "4c6a32de1acd9d0ae77a6d0426185b0e7725b1d7"
+    },
+    {
+      "file": "OFL-Pretendard.txt",
+      "source": "https://raw.githubusercontent.com/orioncactus/pretendard/7aeb0698819be2b4097dae8ec8fe6a795e5cf3ae/LICENSE",
+      "bytes": 4816,
+      "sha256": "82e9c8a4b203261f10ddba1296422d64914ff3d4b7bd8a12896d03f0f088d70a",
+      "gitBlob": "160421b6039671e5c85e1646bee4167844a5d69c"
+    }
+  ]
+}

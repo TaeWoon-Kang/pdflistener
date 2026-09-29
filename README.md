@@ -21,7 +21,7 @@ npm start
 
 설정된 저장소: <https://github.com/TaeWoon-Kang/pdflistener>
 
-예정 사이트 주소: <https://taewoon-kang.github.io/pdflistener/>
+게시 사이트 주소: <https://taewoon-kang.github.io/pdflistener/>
 
 1. 이 저장소의 `main` 브랜치를 GitHub에 올립니다. 앱 상위 폴더는 포함하지 않습니다.
 2. 저장소의 **Settings → Pages → Build and deployment → Source**에서 **GitHub Actions**를 선택합니다.
@@ -87,9 +87,19 @@ npm run test:browser
 - `tools/`: Node 기본 모듈 기반 빌드/로컬 서버, 선택적 공유 이미지 생성 도구
 - `dist/`: 배포 산출물. 빌드 때 새로 생성하며 Git에 포함하지 않습니다.
 
-사이트는 외부 폰트·방문 분석·PDF 업로드를 사용하지 않습니다.
+사이트는 외부 폰트 CDN·방문 분석·PDF 업로드를 사용하지 않습니다.
+한국어 큰 제목은 **Pretendard SemiBold (SIL OFL 1.1)** 원본을 이 사이트에서 직접 제공합니다.
+상업적 사용은 해당 조건에 따라 가능하며, 저작권이 없는 글꼴은 아닙니다.
+`assets/fonts/OFL-Pretendard.txt`에 저작권 고지와 라이선스 전문을 동봉했고,
+양쪽 언어의 라이선스 페이지에서 연결합니다. `assets/fonts/provenance.json`에 원본 커밋과
+파일 해시를 기록했습니다. 글꼴과 고지가 누락되거나 해시가 다르면 빌드가 실패합니다.
+글꼴 업데이트 시에는 원본·고지·출처를 함께 검토하고 해시를 갱신해야 합니다.
+나머지 본문은 기기에 설치된 시스템 글꼴을 사용하며 해당 바이너리는 배포하지 않습니다.
+자세한 범위와 공식 근거는 [글꼴 검토 기록](docs/font-license-review.md)을 참고하세요.
 논문 모드 버튼은 제외 항목을 시각적으로 설명하는 예시이며 녹음된 음성은 바뀌지 않습니다.
 앱 자체의 배포 라이선스는 미정입니다. 이 저장소에도 임의로 MIT 라이선스를 부여하지 않았습니다.
+`package.json`의 `UNLICENSED`는 자체 사이트 코드에 대한 것으로, 함께 배포되는
+Pretendard 글꼴에는 별도의 OFL-1.1이 적용되며 이를 제한하거나 대체하지 않습니다.
 테스트용 `axe-core`(MPL-2.0), `playwright-core`(Apache-2.0)는 배포 결과물에 포함되지 않습니다.
 
 ## English
@@ -104,3 +114,8 @@ The app download remains unavailable while signing, notarization and distributio
 are pending. Public URLs and release flags live in `site.config.mjs`; never add signing secrets.
 The recorded demo is original English text synthesized with the actual app. The paper-mode toggle
 illustrates filtering without changing the recording. Neither model weights nor app binaries are shipped here.
+
+Korean headings use the original, self-hosted Pretendard SemiBold under OFL-1.1.
+The full upstream copyright/license notice and pinned provenance ship in `assets/fonts/`
+and are linked from both license pages. Other live text uses device-installed fonts.
+The site package’s `UNLICENSED` designation does not override the font’s OFL license.

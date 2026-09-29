@@ -2,11 +2,13 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs/promises";
 import path from "node:path";
+import os from "node:os";
 import config from "../site.config.mjs";
 import { build, root, validateConfig } from "../tools/build.mjs";
 import { content } from "../src/content.mjs";
 import { render } from "../src/template.mjs";
 import { createPreviewServer } from "../tools/serve.mjs";
+import { fontFiles, verifyFonts } from "../tools/fonts.mjs";
 const out = await build();
 
 test("static English/Korean pages keep all local resources within a Pages project subpath", async () => {
@@ -131,6 +133,7 @@ test("deployment includes only public site files and stays below the 3MB asset b
     "robots.txt",
     "sitemap.xml",
     ".nojekyll",
+    ...[...fontFiles, "provenance.json"].map((x) => "assets/fonts/" + x),
     ...[
       "icon.png",
       "app-preview.png",
@@ -153,11 +156,64 @@ test("deployment includes only public site files and stays below the 3MB asset b
   assert.ok(bytes < 3 * 1024 * 1024, `Site is ${bytes} bytes`);
 });
 
+test("font redistribution preserves original bytes and notices and rejects missing or changed files", async (t) => {
+  const fonts = path.join(out, "assets/fonts");
+  await verifyFonts(fonts);
+  const notice = await fs.readFile(
+    path.join(fonts, "OFL-Pretendard.txt"),
+    "utf8",
+  );
+  for (const name of [
+    "Kil Hyung-jin",
+    "Adobe",
+    "Inter Project Authors",
+    "M+ FONTS Project Authors",
+    "SIL OPEN FONT LICENSE Version 1.1",
+  ])
+    assert.ok(notice.includes(name), name);
+  for (const lang of ["en", "ko"]) {
+    const html = await fs.readFile(
+      path.join(
+        out,
+        lang === "ko" ? "ko/licenses/index.html" : "licenses/index.html",
+      ),
+      "utf8",
+    );
+    assert.ok(html.includes(content[lang].legalFonts));
+    assert.match(html, /href="[^"]*assets\/fonts\/OFL-Pretendard.txt"/);
+  }
+  const copy = await fs.mkdtemp(path.join(os.tmpdir(), "pdflistener-fonts-"));
+  t.after(() => fs.rm(copy, { recursive: true, force: true }));
+  await fs.cp(fonts, copy, { recursive: true });
+  for (const name of fontFiles) {
+    const original = await fs.readFile(path.join(copy, name));
+    await fs.writeFile(path.join(copy, name), original.subarray(1));
+    await assert.rejects(verifyFonts(copy), /Font integrity mismatch/);
+    await fs.rm(path.join(copy, name));
+    await assert.rejects(verifyFonts(copy), { code: "ENOENT" });
+    await fs.writeFile(path.join(copy, name), original);
+  }
+  const manifest = JSON.parse(
+    await fs.readFile(path.join(copy, "provenance.json"), "utf8"),
+  );
+  manifest.files.pop();
+  await fs.writeFile(
+    path.join(copy, "provenance.json"),
+    JSON.stringify(manifest),
+  );
+  await assert.rejects(verifyFonts(copy), /must include/);
+});
+
 test("preview server supports audio ranges and cannot expose project source", async (t) => {
   const server = createPreviewServer({ prefix: "/pdflistener/" });
   await new Promise((resolve) => server.listen(0, "127.0.0.1", resolve));
   t.after(() => new Promise((resolve) => server.close(resolve)));
   const base = `http://127.0.0.1:${server.address().port}`;
+  const fontResponse = await fetch(
+    base + "/pdflistener/assets/fonts/Pretendard-SemiBold.woff2",
+  );
+  assert.equal(fontResponse.status, 200);
+  assert.equal(fontResponse.headers.get("content-type"), "font/woff2");
   const response = await fetch(base + "/pdflistener/assets/sample.wav", {
     headers: { Range: "bytes=0-43" },
   });

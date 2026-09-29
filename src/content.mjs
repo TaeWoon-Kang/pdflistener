@@ -154,6 +154,12 @@ export const content = {
     legalSources:
       "The test app includes original Python and native dependency notices, model attribution, Python MPL-covered source, and pinned FFmpeg, Electron, and selected Chromium source materials. Complete binary-to-source coverage and rebuilding have not yet been verified. A source package and applicable terms must accompany a future public release.",
     legalSiteTitle: "About this website",
+    legalFontsTitle: "Website fonts",
+    legalFonts:
+      "Korean page headings use an unmodified Pretendard SemiBold webfont, self-hosted under the SIL Open Font License 1.1. Commercial use is allowed under its terms; the font is copyrighted, not public domain. We distribute the original copyright notices and full license with the font. Terms for the website’s own code do not override the font’s OFL license. Other live text uses fonts already installed on your device; those font files are not distributed here. The existing screenshot and share image are raster images, not bundled font software.",
+    fontLicense: "Original copyright notices and full font license",
+    fontSource: "Pretendard project",
+    fontProvenance: "Font source version and file hashes",
     legalSite:
       "The headphone icon is the existing app asset. The screenshot is from the actual desktop app. The audio sample uses original demonstration text synthesized locally with Kokoro Heart; it does not reproduce a research paper. The site does not include model weights or app runtime binaries.",
     back: "Back to PDF Listener",
@@ -314,6 +320,12 @@ export const content = {
     legalSources:
       "테스트 앱에는 Python·네이티브 의존성 고지, 모델 출처, Python MPL 대상 소스, 고정 버전의 FFmpeg·Electron 및 선택된 Chromium 소스 자료가 포함됩니다. 전체 바이너리에 대응하는 소스 범위와 재빌드는 아직 검증하지 않았습니다. 공개 배포 시에는 소스 패키지와 해당 이용 조건도 함께 제공해야 합니다.",
     legalSiteTitle: "이 사이트의 자료",
+    legalFontsTitle: "사이트 글꼴",
+    legalFonts:
+      "한국어 페이지의 큰 제목에는 수정하지 않은 Pretendard SemiBold 웹폰트를 사용하며, SIL Open Font License 1.1에 따라 이 사이트에서 직접 제공합니다. 해당 조건에 따른 상업적 사용이 가능하지만 저작권이 없는 글꼴은 아닙니다. 글꼴과 함께 원문 저작권 고지 및 라이선스 전문을 배포합니다. 사이트 자체 코드의 이용 조건은 이 글꼴의 OFL 사용권을 제한하지 않습니다. 나머지 본문은 방문자 기기에 설치된 글꼴을 사용하며, 해당 글꼴 파일은 이 사이트에서 배포하지 않습니다. 기존 앱 스크린샷과 공유 이미지는 글꼴 파일이 아닌 래스터 이미지입니다.",
+    fontLicense: "글꼴 저작권 고지 및 라이선스 전문",
+    fontSource: "Pretendard 프로젝트",
+    fontProvenance: "글꼴 원본 버전 및 파일 해시",
     legalSite:
       "헤드폰 아이콘은 기존 앱의 이미지이며, 스크린샷은 실제 데스크톱 앱 화면입니다. 음성 샘플은 직접 작성한 예문을 Kokoro Heart로 로컬 합성한 것으로, 다른 논문의 내용을 사용하지 않았습니다. 이 사이트에는 모델 가중치나 앱 실행 환경을 포함하지 않습니다.",
     back: "PDF Listener로 돌아가기",

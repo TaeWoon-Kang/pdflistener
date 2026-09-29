@@ -11,6 +11,7 @@ const types = {
   ".json": "application/json",
   ".png": "image/png",
   ".wav": "audio/wav",
+  ".woff2": "font/woff2",
   ".xml": "application/xml",
   ".txt": "text/plain; charset=utf-8",
 };
