@@ -1,0 +1,24 @@
+{
+  "voice": "Heart",
+  "engine": "Kokoro v1.0",
+  "language": "en",
+  "origin": "Original demonstration text, generated locally with the application. No third-party paper is reproduced.",
+  "segments": [
+    {
+      "text": "Good research starts with a question. A different way of reading can help us notice something new.",
+      "start": 0,
+      "end": 5.175333333333334
+    },
+    {
+      "text": "Listening gives familiar ideas a little more room. A sentence can unfold while our eyes take a break.",
+      "start": 5.175333333333334,
+      "end": 11.620000000000001
+    },
+    {
+      "text": "Keep the argument in focus, follow the words, and return to the details when you need them.",
+      "start": 11.620000000000001,
+      "end": 16.923333333333336
+    }
+  ],
+  "duration": 16.923333333333336
+}
