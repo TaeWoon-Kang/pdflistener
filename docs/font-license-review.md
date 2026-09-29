@@ -98,9 +98,36 @@ AGY는 제공된 자료만 검토했으며 직접 브라우저나 파일을 검�
    고지 파일명 중복이나 해시를 별도 환경 변수에 보관하는 방안은 필수 의무로 취급하지 않았다.
 
 추가 경로 코드와 고지 문구를 전달한 세 번째 검토에서, AGY는 제공된 자료 범위에
-확인된 구체적인 필수 수정이 남아 있지 않다고 답했다. 공개 배포 파일 검증은 별도로 수행한다.
+확인된 구체적인 필수 수정이 남아 있지 않다고 답했다. 공개 배포 파일 검증 결과는 아래에 기록했다.
 
-Claude CLI에도 동일한 원문 자료로 검토를 요청했으나 OAuth 로그인 만료 오류가 반환되었다.
-Claude의 검토 결과는 아직 없으며, 로그인 복구 후 추가 검토가 필요하다.
+Claude CLI는 재로그인 후 기본 모델인 `claude-sonnet-5`의 검토를 받았다.
+Claude 역시 자료에 근거한 서면 검토이며, 직접 사이트를 조사한 것은 아니다.
+최초 답변에서 요청한 문구가 h3일 가능성을 제기했으나, 실제 `focusTitle` 값과
+`<h2>` 템플릿, 공개 DOM을 대조하면 해당 문구는 `#features h2`이다.
+이 확인 자료와 모든 한국어 h1/h2의 실제 렌더링 결과를 후속 검토에 전달했다.
+Claude는 후속 답변에서 h3 추정을 철회하고, 제시된 증거 범위에서 확인된
+미해결 필수 수정 사항이 없다고 답했다.
+시스템 글꼴이 퍼블릭 도메인이 아니라는 설명과 원본 바이너리/고지 버전 구분은
+이미 README, 이 문서와 provenance에 기록되어 있다. 이 부분에 대한 추가 설명 권고는
+필수 라이선스 수정 사항으로 취급하지 않았다.
 AI 답변 수나 합의는 법률적 보증이 아니다. 최종 판단의 근거는 공식 조건과 실제 배포 구성이다.
 이번 범위에서 발견한 고지 의무는 반영했지만 향후 모든 관할권에서의 분쟁 부재를 보증하지 않는다.
+
+
+## 공개 배포 확인
+
+변경 커밋: `3e73b53a6df026aaf6941fd2ae7fba8b4a4d2cc8`.
+[GitHub Actions의 검사·배포 실행](https://github.com/TaeWoon-Kang/pdflistener/actions/runs/36636362169)이 성공했다.
+
+- 2026-09-29 21:57 UTC 공개 URL에서 16개 제공 파일의 HTTP 200 및 SHA-256을 확인했다.
+  모두 로컬 검증본과 일치한다. Pages 내부 마커 `.nojekyll`은 공개 파일 검사에서 제외했다.
+- WOFF2는 `font/woff2`, 고지 전문은 `text/plain; charset=utf-8`로 제공된다.
+  양쪽 언어의 고지 링크와 출처 JSON을 포함한다.
+- 공개 한국어 홍보·라이선스 페이지의 h1/h2 총 17개를 Chrome에서 조사했다.
+  모두 실제 표시 글꼴이 `Pretendard SemiBold`, `isCustomFont: true`였다.
+  요청한 문구의 DOM은 `<h2>중요한 내용은 또렷하게.<br>불필요한 끊김은 줄이게.</h2>`다.
+- 공개 제목의 390px/1440px 캡처를 검토했다. 가로 넘침과 콘솔 오류가 없었다.
+
+공개 페이지: [한국어 사이트](https://taewoon-kang.github.io/pdflistener/ko/#features),
+[한국어 글꼴 고지](https://taewoon-kang.github.io/pdflistener/ko/licenses/#website-fonts),
+[영어 글꼴 고지](https://taewoon-kang.github.io/pdflistener/licenses/#website-fonts).

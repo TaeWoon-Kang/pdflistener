@@ -39,3 +39,12 @@ physical iPhone/Safari behavior, voice quality or legal compliance. Website test
 do not repeat or replace the app's PDF/speech/runtime/source-coverage audits.
 Screenshot and machine-readable results are generated in ignored `test-results/`
 and are uploaded as verification artifacts by GitHub Actions.
+
+
+Public deployment for the Korean font change also passed:
+[Pages run 36636362169](https://github.com/TaeWoon-Kang/pdflistener/actions/runs/36636362169),
+commit `3e73b53a6df026aaf6941fd2ae7fba8b4a4d2cc8`.
+All 16 served files match the local output byte-for-byte (`.nojekyll` is an internal
+marker, not a served asset). The font and full notice return HTTP 200 with the
+expected MIME types. All 17 Korean h1/h2 elements across both public Korean pages
+render in the actual Pretendard SemiBold webfont. See [font review](font-license-review.md).
