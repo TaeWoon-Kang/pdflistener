@@ -201,7 +201,7 @@ test(
     assert.ok(page.url().endsWith("#main"));
     const noJS = await browser.newPage({ javaScriptEnabled: false });
     await noJS.goto(base + "ko/");
-    assert.match(await noJS.locator("h1").innerText(), /귀 기울이는/);
+    assert.match(await noJS.locator("h1").innerText(), /영어 논문/);
     await noJS.locator(".languages a[lang=en]").click();
     assert.equal(await noJS.locator("html").getAttribute("lang"), "en");
     await noJS.close();
