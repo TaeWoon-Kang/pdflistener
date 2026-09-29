@@ -11,7 +11,7 @@ export const content = {
     eyebrow: "A little space to think. A new way to read.",
     headline: "Give your papers<br><em>a voice.</em>",
     intro:
-      "Listen to English research papers, right on your Mac. Follow the ideas, rest your eyes, and pick up exactly where you left off.",
+      "Listen to English research papers with a free app for Mac. Windows and iPhone versions are planned. Follow along and choose your own listening pace.",
     cta: "Listen to a sample",
     secondary: "Made for your Mac",
     requirements: "Apple Silicon · macOS 26 or later",
@@ -77,7 +77,7 @@ export const content = {
     localKicker: "ON YOUR OWN MACHINE",
     localTitle: "Your reading stays<br>with you.",
     localCopy:
-      "The macOS app includes its speech models. Once downloaded, PDF extraction and speech generation work without an internet connection or an external speech API.",
+      "PDF processing and speech generation run on your Mac, without sending your papers to an external server. Documents and generated audio stay on your Mac. The speech models are included, so the app works offline after installation.",
     localItems: [
       "No speech API key to manage",
       "Apple GPU acceleration, with a CPU option",
@@ -99,7 +99,7 @@ export const content = {
     faqs: [
       [
         "Which Macs are supported?",
-        "The current build targets Apple Silicon Macs (M1 or later) running macOS 26 or later. Intel Macs, Windows, and native mobile apps are not currently supported. This website works on mobile.",
+        "The current build supports Apple Silicon Macs (M1 or later) running macOS 26 or later. Windows and iPhone versions are planned. Intel Macs, Windows, and native mobile apps are not currently supported. This website works on mobile.",
       ],
       [
         "Can it read Korean papers aloud?",
@@ -168,16 +168,16 @@ export const content = {
   ko: {
     title: "PDF Listener — Mac에서 듣는 영어 논문",
     description:
-      "Mac에서 듣는 영어 논문. 그림·표 설명과 참고문헌은 건너뛰고, 필요한 문장부터 원하는 속도로 들을 수 있습니다.",
+      "영어 논문을 음성으로 읽어주는 Mac 전용 무료 앱입니다. 그림·표 설명과 참고문헌은 건너뛰고, 필요한 문장부터 원하는 속도로 들을 수 있습니다.",
     skip: "본문으로 바로가기",
     features: "주요 기능",
     experience: "미리 듣기",
     release: "출시 안내",
     language: "사이트 언어 선택",
-    eyebrow: "필요한 문장부터, 원하는 속도로.",
-    headline: "Mac에서 듣는<br><em>영어 논문.</em>",
+    eyebrow: "필요한 문장부터, 원하는 속도로",
+    headline: "Mac에서 듣는<br><em>영어 논문</em>",
     intro:
-      "영어 논문을 음성으로 읽어주는 Mac 앱입니다. 논문 모드로 그림·표 설명과 참고문헌은 건너뛰고, 원하는 문장부터 들을 수 있습니다.",
+      "영어 논문을 음성으로 읽어주는 Mac 전용 무료 앱입니다(추후 Windows 및 iPhone용 앱 출시 예정). 논문 모드로 그림·표 설명과 참고문헌은 건너뛰고, 원하는 문장부터 들을 수 있습니다.",
     cta: "목소리 미리 듣기",
     secondary: "출시 안내 보기",
     requirements: "Apple Silicon · macOS 26 이상",
@@ -215,7 +215,7 @@ export const content = {
       "속도를 조절하고 원하는 문장을 다시 들을 수 있습니다.",
     ],
     focusKicker: "논문 모드",
-    focusTitle: "논문 본문에 집중.",
+    focusTitle: "논문 본문에 집중",
     focusIntro:
       "저자 정보와 그림 설명 등을 건너뛰고 본문 위주로 읽습니다. 제외된 내용은 확인 후 다시 포함할 수 있습니다.",
     focusItems: [
@@ -233,22 +233,22 @@ export const content = {
       ],
     ],
     screenKicker: "실제 앱 화면",
-    screenTitle: "듣는 위치를<br>한눈에.",
+    screenTitle: "듣는 위치를<br>한눈에",
     screenCopy:
       "PDF를 열면 음성 생성이 시작됩니다. 준비된 문장부터 재생할 수 있고, 읽고 있는 문장은 화면에서 강조됩니다.",
     screenshotAlt:
-      "논문 모드, Heart 목소리, 재생 속도와 문장 강조 기능이 보이는 현재 PDF Listener macOS 앱 화면.",
+      "논문 모드, Heart 목소리, 재생 속도와 문장 강조 기능이 보이는 현재 PDF Listener macOS 앱 화면",
     screenshotCaption: "현재 macOS 앱 화면 · 0.1.1 미리보기 버전",
-    localKicker: "오프라인 지원",
-    localTitle: "인터넷 없이도,<br>내 Mac에서.",
+    localKicker: "문서 보안",
+    localTitle: "보안 걱정 없이,<br>내 Mac에서",
     localCopy:
-      "음성 모델이 앱에 포함되어 있습니다. 설치 후에는 인터넷 연결이나 외부 음성 API 없이 PDF를 읽고 음성을 만들 수 있습니다.",
+      "논문을 외부 서버로 보내지 않고, PDF 처리와 음성 생성을 Mac 안에서 수행합니다. 문서와 생성된 음성은 Mac에 저장됩니다. 음성 모델도 앱에 포함되어 있어 설치 후에는 인터넷 연결 없이 사용할 수 있습니다.",
     localItems: [
       "별도의 음성 API 키 불필요",
       "Apple GPU 가속 및 CPU 실행 지원",
       "PDF와 생성한 음성을 내 Mac에 저장",
     ],
-    workflowTitle: "PDF를 듣기까지, 세 단계.",
+    workflowTitle: "PDF를 듣기까지, 세 단계",
     steps: [
       ["PDF 열기", "텍스트를 선택할 수 있는 50MB 이하의 PDF를 엽니다."],
       [
@@ -264,7 +264,7 @@ export const content = {
     faqs: [
       [
         "어떤 Mac에서 사용할 수 있나요?",
-        "macOS 26 이상이 설치된 Apple Silicon(M1 이상) Mac을 지원합니다. 현재 Intel Mac과 Windows, 모바일 앱은 지원하지 않습니다. 이 소개 사이트는 모바일에서도 볼 수 있습니다.",
+        "현재는 macOS 26 이상이 설치된 Apple Silicon(M1 이상) Mac을 지원합니다. Windows 및 iPhone용 앱은 추후 출시 예정이며, Intel Mac은 지원하지 않습니다. 이 소개 사이트는 모바일에서도 볼 수 있습니다.",
       ],
       [
         "한국어 논문도 읽어주나요?",
@@ -284,7 +284,7 @@ export const content = {
       ],
     ],
     releaseKicker: "출시 안내",
-    releaseTitle: "Mac을 위한<br>PDF Listener.",
+    releaseTitle: "Mac을 위한<br>PDF Listener",
     releaseCopy: "현재 테스트 버전으로, 공개 배포를 준비하고 있습니다.",
     pending: "공개 다운로드 준비 중",
     releaseDetail:
@@ -300,7 +300,7 @@ export const content = {
     download: "Apple Silicon용 다운로드",
     sourceDownload: "대응 소스",
     terms: "앱 이용 조건",
-    footer: "Mac에서 듣는 영어 논문.",
+    footer: "Mac에서 듣는 영어 논문",
     licenses: "라이선스 및 배포 안내",
     top: "맨 위로",
     legalTitle: "라이선스와 배포 안내",
