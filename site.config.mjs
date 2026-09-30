@@ -3,7 +3,7 @@ export default {
   url: "https://taewoon-kang.github.io/pdflistener/",
   repository: "https://github.com/TaeWoon-Kang/pdflistener",
   release: {
-    version: "0.1.2",
+    version: "0.1.3",
     publicReady: false,
     developerIDSigned: false,
     notarized: false,
