@@ -115,16 +115,16 @@ export const content = {
       ],
       [
         "Can I download it now?",
-        "A public download is being prepared. Developer ID signing, Apple notarization, and remaining distribution-license checks are not complete. The local test build is not offered for public download here.",
+        "We’re preparing the next download. It will be available here once verification is complete.",
       ],
     ],
     releaseKicker: "NEXT UP: YOUR NEXT PAPER",
     releaseTitle: "A calmer way<br>through the reading list.",
     releaseCopy:
-      "PDF Listener for Mac is in preview. We’re getting the public release ready.",
-    pending: "Public download coming later",
+      "We’re preparing the next version of PDF Listener for Mac.",
+    pending: "Download coming soon",
     releaseDetail:
-      "Developer ID signing and notarization are pending. Distribution-license verification is still in progress.",
+      "The download will be available once verification is complete.",
     publishedCopy: "PDF Listener for Mac is available for download.",
     publishedFAQ:
       "Download the Apple Silicon ZIP, unzip it, and move PDF Listener to Applications. Requires macOS 26 or later. The app is Developer ID signed and notarized by Apple. App terms and open-source materials are provided alongside the download.",
@@ -146,7 +146,7 @@ export const content = {
       "PDF Listener uses open-source libraries and speech models. Their individual licenses continue to apply.",
     legalStatusTitle: "Current release status",
     legalStatus:
-      "Version 0.1.5 is a local test build. Complete corresponding-source coverage and the app’s own distribution terms remain under review. Developer ID signing and notarization are pending. This website does not distribute the app binary.",
+      "We’re preparing the next download. The app and its accompanying materials will be available after verification.",
     legalComponents: "Main app components",
     component: "Project",
     license: "License / notices",
@@ -154,7 +154,7 @@ export const content = {
       "This is a summary of the app’s main components, not a complete inventory or a legal clearance. The app includes original notices, author and project links, and source materials. Its entire bundle is not licensed under MIT.",
     legalSourcesTitle: "Notices and source materials",
     legalSources:
-      "The test app includes original Python and native dependency notices, model attribution, Python MPL-covered source, and pinned FFmpeg, Electron, and selected Chromium source materials. Complete binary-to-source coverage and rebuilding have not yet been verified. A source package and applicable terms must accompany a future public release.",
+      "The app includes original notices, model attribution and applicable source materials. The next download will include the corresponding source package and app terms.",
     legalSiteTitle: "About this website",
     legalFontsTitle: "Website fonts",
     legalFonts:
@@ -282,15 +282,15 @@ export const content = {
       ],
       [
         "지금 다운로드할 수 있나요?",
-        "공개 배포를 준비하고 있습니다. Developer ID 서명, Apple 공증과 배포 라이선스 검토가 아직 끝나지 않아, 현재는 앱을 다운로드할 수 없습니다.",
+        "새 버전을 준비하고 있습니다. 검증이 끝나면 이곳에서 다운로드할 수 있습니다.",
       ],
     ],
     releaseKicker: "출시 안내",
     releaseTitle: "Mac을 위한<br>PDF Listener",
-    releaseCopy: "현재 테스트 버전으로, 공개 배포를 준비하고 있습니다.",
-    pending: "공개 다운로드 준비 중",
+    releaseCopy: "Mac용 PDF Listener의 새 버전을 준비하고 있습니다.",
+    pending: "다운로드 준비 중",
     releaseDetail:
-      "Developer ID 서명과 Apple 공증은 추후 진행 예정이며, 배포 라이선스 검증을 계속하고 있습니다.",
+      "검증이 끝나면 다운로드를 제공하겠습니다.",
     publishedCopy: "Mac용 PDF Listener를 내려받을 수 있습니다.",
     publishedFAQ:
       "Apple Silicon용 ZIP을 내려받아 압축을 풀고 PDF Listener를 응용 프로그램 폴더로 옮겨 실행하세요. macOS 26 이상이 필요합니다. Developer ID 서명과 Apple 공증을 완료했으며, 이용 조건과 오픈소스 자료도 함께 제공합니다.",
@@ -312,7 +312,7 @@ export const content = {
       "PDF Listener는 오픈소스 라이브러리와 음성 모델을 사용합니다. 각 구성요소에는 해당 라이선스가 적용됩니다.",
     legalStatusTitle: "현재 배포 상태",
     legalStatus:
-      "0.1.5은 로컬 테스트용 빌드입니다. 전체 대응 소스 범위와 앱 자체 배포 조건을 검토 중이며, Developer ID 서명과 공증도 아직 없습니다. 이 사이트에는 앱 실행 파일을 배포하지 않습니다.",
+      "새 버전을 준비하고 있습니다. 검증이 끝나면 앱과 관련 자료를 함께 제공하겠습니다.",
     legalComponents: "앱의 주요 구성요소",
     component: "프로젝트",
     license: "라이선스 및 고지",
@@ -320,7 +320,7 @@ export const content = {
       "이 목록은 앱의 주요 구성을 요약한 것으로, 전체 의존성 목록이나 법률 적합성 인증은 아닙니다. 앱에는 원문 고지, 저자·프로젝트 링크와 소스 자료가 포함됩니다. 앱 전체가 MIT 라이선스인 것은 아닙니다.",
     legalSourcesTitle: "원문 고지와 소스 자료",
     legalSources:
-      "테스트 앱에는 Python·네이티브 의존성 고지, 모델 출처, Python MPL 대상 소스, 고정 버전의 FFmpeg·Electron 및 선택된 Chromium 소스 자료가 포함됩니다. 전체 바이너리에 대응하는 소스 범위와 재빌드는 아직 검증하지 않았습니다. 공개 배포 시에는 소스 패키지와 해당 이용 조건도 함께 제공해야 합니다.",
+      "앱에는 원문 고지, 모델 출처와 해당 소스 자료가 포함됩니다. 새 버전에도 대응 소스 패키지와 앱 이용 조건을 함께 제공합니다.",
     legalSiteTitle: "이 사이트의 자료",
     legalFontsTitle: "사이트 글꼴",
     legalFonts:
