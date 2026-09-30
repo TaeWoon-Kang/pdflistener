@@ -127,11 +127,12 @@ export const content = {
       "Developer ID signing and notarization are pending. Distribution-license verification is still in progress.",
     publishedCopy: "PDF Listener for Mac is available for download.",
     publishedFAQ:
-      "Use the Apple Silicon download below. Corresponding source materials and app terms are provided alongside it. Check the macOS requirements before installing.",
+      "Download the Apple Silicon ZIP, unzip it, and move PDF Listener to Applications. Requires macOS 26 or later. The app is Developer ID signed and notarized by Apple. App terms and open-source materials are provided alongside the download.",
     publishedStatus:
-      "The public download, corresponding source materials and app terms are linked below. Review the terms and bundled notices for this release.",
+      "Developer ID signed and notarized by Apple. This version is free to use, including for commercial work; the original application code remains proprietary. Third-party license rights remain unchanged.",
     publishedSources:
-      "The app includes original notices and source materials. Use the corresponding-source link above for the source package that accompanies this release. Individual component licenses and the app’s distribution terms continue to apply.",
+      "The app includes original notices, Python MPL-covered source, and pinned FFmpeg, Opus, Electron and selected Chromium sources. The source package includes a tested macOS arm64 FFmpeg rebuild recipe and local library replacement instructions. It is also available offline in the app. Individual component licenses remain applicable.",
+    ffmpegNotice: "This app uses FFmpeg libraries under LGPL-2.1-or-later. Their source is included in the source download above.",
     github: "Follow on GitHub",
     download: "Download for Apple Silicon",
     sourceDownload: "Corresponding source",
@@ -291,11 +292,12 @@ export const content = {
       "Developer ID 서명과 Apple 공증은 추후 진행 예정이며, 배포 라이선스 검증을 계속하고 있습니다.",
     publishedCopy: "Mac용 PDF Listener를 내려받을 수 있습니다.",
     publishedFAQ:
-      "아래의 Apple Silicon용 다운로드를 이용해주세요. 대응 소스와 앱 이용 조건도 함께 제공합니다. 설치 전에 macOS 요구 사항을 확인해주세요.",
+      "Apple Silicon용 ZIP을 내려받아 압축을 풀고 PDF Listener를 응용 프로그램 폴더로 옮겨 실행하세요. macOS 26 이상이 필요합니다. Developer ID 서명과 Apple 공증을 완료했으며, 이용 조건과 오픈소스 자료도 함께 제공합니다.",
     publishedStatus:
-      "아래에서 공개 앱, 대응 소스와 앱 이용 조건을 확인할 수 있습니다. 해당 버전의 이용 조건과 앱에 포함된 고지를 확인해주세요.",
+      "Developer ID 서명과 Apple 공증을 완료했습니다. 이 버전은 상업적 업무를 포함해 무료로 이용할 수 있으며, 앱 자체 소스는 비공개로 유지합니다. 제3자 라이선스의 권리는 그대로 적용됩니다.",
     publishedSources:
-      "앱에는 원문 고지와 소스 자료가 포함됩니다. 위의 대응 소스 링크에서 해당 배포본의 소스 패키지를 받을 수 있습니다. 각 구성요소의 라이선스와 앱의 배포 조건이 적용됩니다.",
+      "앱에는 원문 고지, Python MPL 대상 소스, 고정 버전의 FFmpeg·Opus·Electron 및 선택된 Chromium 소스가 포함됩니다. 소스 패키지에는 검증한 macOS arm64 FFmpeg 재빌드 방법과 라이브러리 교체 안내도 들어 있습니다. 앱에서도 인터넷 없이 내려받을 수 있으며, 각 구성요소의 라이선스가 그대로 적용됩니다.",
+    ffmpegNotice: "이 앱은 LGPL-2.1-or-later의 FFmpeg 라이브러리를 사용합니다. 해당 소스는 위 소스 다운로드에 포함됩니다.",
     github: "GitHub에서 프로젝트 보기",
     download: "Apple Silicon용 다운로드",
     sourceDownload: "대응 소스",

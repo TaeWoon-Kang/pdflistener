@@ -44,7 +44,10 @@ test("static English/Korean pages keep all local resources within a Pages projec
 test("public download cannot be advertised before release verification and valid source/terms URLs", () => {
   assert.doesNotThrow(() => validateConfig(config));
   const ready = structuredClone(config);
-  ready.release.publicReady = true;
+  Object.assign(ready.release, {
+    publicReady: true, developerIDSigned: false, notarized: false,
+    licenseReviewComplete: false, downloadUrl: "", sourceUrl: "", termsUrl: "", sha256: "",
+  });
   assert.throws(() => validateConfig(ready), /verification/);
   Object.assign(ready.release, {
     developerIDSigned: true,
@@ -62,6 +65,7 @@ test("public download cannot be advertised before release verification and valid
   ready.release.downloadUrl = "javascript:alert(1)";
   assert.throws(() => validateConfig(ready), /HTTPS/);
   const pending = structuredClone(config);
+  pending.release.publicReady = false;
   pending.release.downloadUrl = "https://example.org/app.zip";
   assert.throws(() => validateConfig(pending), /pending/);
 });
@@ -115,6 +119,7 @@ test("publishing updates download, FAQ and legal copy in both languages", async 
       assert.ok(html.includes('href="https://example.org/terms"'));
       assert.ok(!html.includes(content[lang].pending));
       assert.ok(!html.includes(content[lang].releaseDetail));
+      assert.ok(html.includes(content[lang].ffmpegNotice));
     }
     assert.ok(home.includes(content[lang].publishedFAQ));
     assert.ok(!home.includes(content[lang].faqs.at(-1)[1]));
