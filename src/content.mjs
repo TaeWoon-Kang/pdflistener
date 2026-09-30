@@ -144,7 +144,7 @@ export const content = {
       "PDF Listener uses open-source libraries and speech models. Their individual licenses continue to apply.",
     legalStatusTitle: "Current release status",
     legalStatus:
-      "Version 0.1.3 is a local test build. Complete corresponding-source coverage and the app’s own distribution terms remain under review. Developer ID signing and notarization are pending. This website does not distribute the app binary.",
+      "Version 0.1.4 is a local test build. Complete corresponding-source coverage and the app’s own distribution terms remain under review. Developer ID signing and notarization are pending. This website does not distribute the app binary.",
     legalComponents: "Main app components",
     component: "Project",
     license: "License / notices",
@@ -308,7 +308,7 @@ export const content = {
       "PDF Listener는 오픈소스 라이브러리와 음성 모델을 사용합니다. 각 구성요소에는 해당 라이선스가 적용됩니다.",
     legalStatusTitle: "현재 배포 상태",
     legalStatus:
-      "0.1.3은 로컬 테스트용 빌드입니다. 전체 대응 소스 범위와 앱 자체 배포 조건을 검토 중이며, Developer ID 서명과 공증도 아직 없습니다. 이 사이트에는 앱 실행 파일을 배포하지 않습니다.",
+      "0.1.4은 로컬 테스트용 빌드입니다. 전체 대응 소스 범위와 앱 자체 배포 조건을 검토 중이며, Developer ID 서명과 공증도 아직 없습니다. 이 사이트에는 앱 실행 파일을 배포하지 않습니다.",
     legalComponents: "앱의 주요 구성요소",
     component: "프로젝트",
     license: "라이선스 및 고지",
