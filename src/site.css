@@ -850,11 +850,32 @@ ol {
   margin: 15px 0;
   font-size: 14px;
 }
+.checksum-details {
+  max-width: 600px;
+  margin: 16px auto;
+}
+.checksum-details summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  list-style: none;
+}
+.checksum-details summary::-webkit-details-marker {
+  display: none;
+}
+.checksum-details[open] summary span {
+  transform: rotate(45deg);
+}
 .checksum {
   font: 11px/1.6 monospace;
   overflow-wrap: anywhere;
-  max-width: 600px;
-  margin: 16px auto;
+  margin: 12px 0 0;
 }
 .footer {
   display: grid;
