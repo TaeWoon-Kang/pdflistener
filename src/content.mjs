@@ -164,7 +164,7 @@ export const content = {
     legalSite:
       "The headphone icon is the existing app asset. The screenshot is from the actual desktop app. The audio sample uses original demonstration text synthesized locally with Kokoro Heart; it does not reproduce a research paper. The site does not include model weights or app runtime binaries.",
     back: "Back to PDF Listener",
-    checked: "Status reviewed: 29 September 2026",
+    checked: "Status reviewed: 30 September 2026",
   },
   ko: {
     title: "PDF Listener — Mac에서 듣는 영어 논문",
@@ -329,6 +329,6 @@ export const content = {
     legalSite:
       "헤드폰 아이콘은 기존 앱의 이미지이며, 스크린샷은 실제 데스크톱 앱 화면입니다. 음성 샘플은 직접 작성한 예문을 Kokoro Heart로 로컬 합성한 것으로, 다른 논문의 내용을 사용하지 않았습니다. 이 사이트에는 모델 가중치나 앱 실행 환경을 포함하지 않습니다.",
     back: "PDF Listener로 돌아가기",
-    checked: "상태 확인: 2026년 9월 29일",
+    checked: "상태 확인: 2026년 9월 30일",
   },
 };
