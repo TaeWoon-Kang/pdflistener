@@ -74,6 +74,8 @@ export async function build() {
     ["ko", false, "ko"],
     ["en", true, "licenses"],
     ["ko", true, "ko/licenses"],
+    ["en", "privacy", "privacy"],
+    ["ko", "privacy", "ko/privacy"],
   ];
   for (const [lang, legal, route] of routes) {
     await fs.mkdir(path.join(out, route), { recursive: true });

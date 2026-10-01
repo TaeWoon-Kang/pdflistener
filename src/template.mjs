@@ -1,4 +1,5 @@
 import { content } from "./content.mjs";
+import { privacy } from "./privacy.mjs";
 export const escape = (value) =>
   String(value).replace(
     /[&<>"']/g,
@@ -47,6 +48,8 @@ const components = [
 
 export function render(lang, legal, config, sample) {
   const t = { ...content[lang] };
+  const isPrivacy = legal === "privacy";
+  const policy = privacy[lang];
   if (config.release.publicReady) {
     t.releaseCopy = t.publishedCopy;
     t.legalSources = t.publishedSources;
@@ -59,8 +62,8 @@ export function render(lang, legal, config, sample) {
   const root = "../".repeat(depth) || "./";
   const home = legal ? "../" : "./";
   const routes = {
-    en: legal ? "licenses/" : "",
-    ko: legal ? "ko/licenses/" : "ko/",
+    en: isPrivacy ? "privacy/" : legal ? "licenses/" : "",
+    ko: isPrivacy ? "ko/privacy/" : legal ? "ko/licenses/" : "ko/",
   };
   const canonical = new URL(routes[lang], config.url).href;
   const languageLinks = `<div class="languages" aria-label="${t.language}">${["en", "ko"].map((l) => `<a href="${root + routes[l]}" lang="${l}" hreflang="${l}" ${l === lang ? 'aria-current="page"' : ""}>${l === "en" ? "EN" : "한국어"}</a>`).join("")}</div>`;
@@ -82,7 +85,8 @@ export function render(lang, legal, config, sample) {
     <audio id="sample-audio" preload="none" src="${root}assets/sample.wav"></audio><p class="sample-error" role="alert" hidden>${t.audioError}</p>
     <p class="voice-hint">${t.voiceHint} <a href="${root}assets/sample.wav" download>${t.audioFallback} ↓</a></p></div>
   </div>`;
-  const main = legal
+  const privacyPage = `<main id="main" class="legal-main wrap"><a class="text-link" href="../">← ${t.back}</a><p class="eyebrow">PDF LISTENER</p><h1>${policy.title}</h1><p class="lede">${policy.intro}</p><p class="muted">${policy.date}</p>${policy.sections.map(([heading, body]) => `<section><h2>${escape(heading)}</h2><p>${escape(body)}</p></section>`).join("")}<p><a href="https://www.apple.com/legal/privacy/">Apple Privacy Policy ${arrow}</a> · <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub Privacy Statement ${arrow}</a></p></main>`;
+  const main = isPrivacy ? privacyPage : legal
     ? `<main id="main" class="legal-main wrap"><a class="text-link" href="../">← ${t.back}</a><p class="eyebrow">PDF LISTENER / ${t.licenses}</p><h1>${t.legalTitle}</h1><p class="lede">${t.legalIntro}</p>
     <section class="legal-status"><h2>${t.legalStatusTitle}</h2><p>${config.release.publicReady ? `${escape(config.release.version)} · ${t.publishedStatus}` : t.legalStatus}</p>${config.release.publicReady ? releaseAction : ""}<p class="muted">${t.checked}</p></section>
     <section><h2>${t.legalComponents}</h2><div class="table-wrap"><table><thead><tr><th scope="col">${t.component}</th><th scope="col">${t.license}</th></tr></thead><tbody>${components.map(([name, license, url]) => `<tr><td><a href="${url}">${name} ${arrow}</a></td><td>${lang === "ko" ? license.replace("model notices", "모델 고지").replace("third-party notices", "제3자 고지").replace("nested component licenses", "포함 구성요소별 라이선스").replace("and other notices", "및 기타 고지") : license}</td></tr>`).join("")}</tbody></table></div><p class="muted">${t.legalScope}</p></section>
@@ -100,12 +104,12 @@ export function render(lang, legal, config, sample) {
   return `<!doctype html>
 <html lang="${lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light"><meta name="theme-color" content="#f7f5f0">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self'; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
-<title>${legal ? `${t.licenses} — PDF Listener` : t.title}</title><meta name="description" content="${escape(legal ? t.legalIntro : t.description)}"><link rel="canonical" href="${canonical}">
+<title>${isPrivacy ? `${policy.title} — PDF Listener` : legal ? `${t.licenses} — PDF Listener` : t.title}</title><meta name="description" content="${escape(isPrivacy ? policy.intro : legal ? t.legalIntro : t.description)}"><link rel="canonical" href="${canonical}">
 ${["en", "ko"].map((l) => `<link rel="alternate" hreflang="${l}" href="${new URL(routes[l], config.url).href}">`).join("")}<link rel="alternate" hreflang="x-default" href="${new URL(routes.en, config.url).href}">
-<meta property="og:type" content="website"><meta property="og:title" content="${escape(legal ? t.licenses : t.title)}"><meta property="og:description" content="${escape(legal ? t.legalIntro : t.description)}"><meta property="og:url" content="${canonical}"><meta property="og:image" content="${new URL("assets/share.png", config.url).href}"><meta property="og:locale" content="${lang === "ko" ? "ko_KR" : "en_US"}"><meta name="twitter:card" content="summary_large_image">
+<meta property="og:type" content="website"><meta property="og:title" content="${escape(isPrivacy ? policy.title : legal ? t.licenses : t.title)}"><meta property="og:description" content="${escape(isPrivacy ? policy.intro : legal ? t.legalIntro : t.description)}"><meta property="og:url" content="${canonical}"><meta property="og:image" content="${new URL("assets/share.png", config.url).href}"><meta property="og:locale" content="${lang === "ko" ? "ko_KR" : "en_US"}"><meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="${root}assets/icon.png"><link rel="stylesheet" href="${root}assets/site.css"><script src="${root}assets/site.js" defer></script></head>
 <body><a class="skip-link" href="#main">${t.skip}</a><header class="site-header"><div class="wrap header-inner">${brand}<nav aria-label="${lang === "ko" ? "주요 메뉴" : "Main navigation"}"><a href="${home}#features">${t.features}</a><a href="${home}#listen">${t.experience}</a><a href="${home}#release">${t.release}</a></nav>${languageLinks}</div></header>${main}
-<footer class="wrap footer"><div>${brand}<p>${t.footer}</p><p>${t.contact}: <a href="mailto:${escape(config.contactEmail)}">${escape(config.contactEmail)}</a></p></div><div class="footer-links"><a href="${legal ? "./" : "./licenses/"}">${t.licenses}</a><a href="${escape(config.repository)}">GitHub ${arrow}</a><a href="#">${t.top} ↑</a></div><p class="footer-note">PDF Listener · ${t.speechNote}</p></footer></body></html>`;
+<footer class="wrap footer"><div>${brand}<p>${t.footer}</p><p>${t.contact}: <a href="mailto:${escape(config.contactEmail)}">${escape(config.contactEmail)}</a></p></div><div class="footer-links"><a href="${home}licenses/">${t.licenses}</a><a href="${home}privacy/">${policy.title}</a><a href="${escape(config.repository)}">GitHub ${arrow}</a><a href="#">${t.top} ↑</a></div><p class="footer-note">PDF Listener · ${t.speechNote}</p></footer></body></html>`;
 }
 function formatTime(seconds) {
   return `${Math.floor(seconds / 60)}:${String(Math.floor(seconds % 60)).padStart(2, "0")}`;

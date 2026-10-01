@@ -14,16 +14,17 @@ test(
   { timeout: 90000 },
   async (t) => {
     const server = createPreviewServer({ prefix: "/pdflistener/" });
-    await new Promise((resolve) => server.listen(0, "127.0.0.1", resolve));
-    const base = `http://127.0.0.1:${server.address().port}/pdflistener/`;
-    const browser = await chromium.launch({
-      executablePath: process.env.CHROME_PATH,
-      headless: true,
-    });
+    let browser;
     t.after(async () => {
-      await browser.close();
+      await browser?.close();
       server.closeAllConnections();
       await new Promise((resolve) => server.close(resolve));
+    });
+    await new Promise((resolve) => server.listen(0, "127.0.0.1", resolve));
+    const base = `http://127.0.0.1:${server.address().port}/pdflistener/`;
+    browser = await chromium.launch({
+      executablePath: process.env.CHROME_PATH,
+      headless: true,
     });
     const page = await browser.newPage({
       viewport: { width: 1440, height: 1100 },
@@ -188,6 +189,21 @@ test(
         legalAudit.violations.map((v) => v.id),
         [],
       );
+      await page.goto(base + route + "privacy/");
+      assert.equal(await page.locator("h1").innerText(), lang === "ko" ? "개인정보 처리방침" : "Privacy policy");
+      assert.ok(await page.getByText("contact@pdflistener.me", { exact: true }).count());
+      for (const width of [320, 1440]) {
+        await page.setViewportSize({ width, height: 1000 });
+        await page.evaluate(() => document.fonts.ready);
+        assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
+        const privacyAudit = await page.evaluate(() => axe.run(document, {
+          runOnly: { type: "tag", values: ["wcag2a", "wcag2aa", "wcag21aa"] },
+        }));
+        assert.deepEqual(privacyAudit.violations.map(v => v.id), []);
+        await page.screenshot({ path: path.join(folder, `privacy-${lang}-${width}.png`), fullPage: true });
+      }
+      await page.locator(".languages a").filter({ hasText: lang === "en" ? "한국어" : "EN" }).click();
+      assert.equal(await page.locator("h1").innerText(), lang === "en" ? "개인정보 처리방침" : "Privacy policy");
     }
     await page.goto(base);
     await page.keyboard.press("Tab");

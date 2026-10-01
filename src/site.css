@@ -1317,3 +1317,6 @@ html[lang="ko"] .section p {
     animation: none !important;
   }
 }
+
+/* Preserve Korean word boundaries on policy and license pages. */
+html[lang="ko"] .legal-main { word-break:keep-all; overflow-wrap:anywhere; }

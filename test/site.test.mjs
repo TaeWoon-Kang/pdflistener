@@ -12,7 +12,7 @@ import { fontFiles, verifyFonts } from "../tools/fonts.mjs";
 const out = await build();
 
 test("static English/Korean pages keep all local resources within a Pages project subpath", async () => {
-  for (const route of ["", "ko/", "licenses/", "ko/licenses/"]) {
+  for (const route of ["", "ko/", "licenses/", "ko/licenses/", "privacy/", "ko/privacy/"]) {
     const html = await fs.readFile(path.join(out, route, "index.html"), "utf8");
     assert.match(
       html,
@@ -139,6 +139,8 @@ test("deployment includes only public site files and stays below the 3MB asset b
     "ko/index.html",
     "licenses/index.html",
     "ko/licenses/index.html",
+    "privacy/index.html",
+    "ko/privacy/index.html",
     "robots.txt",
     "sitemap.xml",
     ".nojekyll",
