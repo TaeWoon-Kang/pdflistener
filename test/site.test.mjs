@@ -24,6 +24,10 @@ test("static English/Korean pages keep all local resources within a Pages projec
     assert.match(html, /hreflang="ko"/);
     for (const [, href] of html.matchAll(/(?:href|src)="([^"]*)"/g)) {
       const url = new URL(href, `https://test.example/pdflistener/${route}`);
+      if (url.protocol === "mailto:") {
+        assert.equal(href, `mailto:${config.contactEmail}`);
+        continue;
+      }
       if (url.origin !== "https://test.example") {
         assert.equal(url.protocol, "https:");
         continue;
