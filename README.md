@@ -1,7 +1,8 @@
 # PDF Listener website
 
 PDF Listener의 한국어·영어 홍보 사이트입니다. 이 폴더 자체가 별도 Git 저장소이며,
-앱 프로젝트나 음성 모델 없이 독립적으로 빌드됩니다. 현재 앱 다운로드는 **준비 중**으로 표시됩니다.
+앱 프로젝트나 음성 모델 없이 독립적으로 빌드됩니다. **앱 설치와 업데이트는 [Mac App Store](https://apps.apple.com/app/id6817984584)에서만 제공합니다.**
+이 저장소의 Download ZIP은 홍보 사이트 소스이며 앱 설치 파일이 아닙니다.
 
 ## 로컬에서 보기
 
@@ -21,7 +22,7 @@ npm start
 
 설정된 저장소: <https://github.com/TaeWoon-Kang/pdflistener>
 
-게시 사이트 주소: <https://taewoon-kang.github.io/pdflistener/>
+게시 사이트 주소: <https://pdflistener.me/>
 
 1. 이 저장소의 `main` 브랜치를 GitHub에 올립니다. 앱 상위 폴더는 포함하지 않습니다.
 2. 저장소의 **Settings → Pages → Build and deployment → Source**에서 **GitHub Actions**를 선택합니다.
@@ -35,28 +36,23 @@ npm start
 
 GitHub 공식 문서: [Pages 사용자 지정 워크플로](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).
 
-## 나중에 앱 다운로드 연결하기
+## 앱 배포 링크
 
-공개 정보는 [`site.config.mjs`](site.config.mjs)에 모았습니다.
-Developer ID 인증서, 개인 키, 암호는 이 파일이나 사이트 저장소에 넣지 마세요.
-인증서는 앱 서명 환경에서 사용하며, 사이트에는 검증 결과와 공개 링크만 입력합니다.
+공개 정보는 [`site.config.mjs`](site.config.mjs)에 모았습니다. `release.appStoreUrl`은
+PDF Listener의 공식 App Store 페이지로만 연결할 수 있습니다. 앱 ZIP·DMG·PKG·앱 번들,
+음성 모델 및 인증서·개인 키는 이 저장소와 Pages에 올리지 마세요. GitHub Releases에도
+PDF Listener 설치 파일을 제공하지 않습니다.
 
-앱의 서명·공증과 남은 배포 라이선스/대응 소스 검토를 실제로 완료한 뒤:
+사이트의 한글·영문 다운로드 버튼은 App Store로 이동합니다. 소개·문의·라이선스·개인정보
+처리방침 페이지는 계속 제공합니다. App Store 공개 반영 여부는 지역과 시점에 따라 달라질 수 있습니다.
 
-1. 앱 ZIP, 해당 배포본의 대응 소스, 앱 이용 조건을 공개할 위치를 준비합니다.
-2. `version`, `downloadUrl`, `sourceUrl`, `termsUrl`, 앱 ZIP의 `sha256`을 입력합니다.
-3. 완료한 검증에 맞춰 `developerIDSigned`, `notarized`, `licenseReviewComplete`를 `true`로 바꿉니다.
-4. 마지막으로 `publicReady`를 `true`로 바꾸고 테스트합니다.
-5. `src/content.mjs`의 지원 환경, 상태 확인 날짜, 스크린샷 설명을 해당 버전에 맞게 검토합니다.
+이전 웹 배포본 이용자를 위한 제3자 대응 소스와 당시 이용 조건은 GitHub Releases에
+보존하고 라이선스 페이지에서 연결합니다. 이는 설치 파일이나 앱 자체 소스가 아니며,
+현재 App Store 빌드의 대응 소스로 표시하지 않습니다. 현재 빌드의 고지와 MPL 소스는
+앱의 License details에서 확인·저장할 수 있습니다.
 
-필수 값이 빠지면 빌드가 실패합니다. 이는 설정 누락 방지 장치이며 실제 서명·공증·법적 의무의
-충족 여부를 검증해 주는 기능은 아닙니다. 사이트의 라이선스 안내도 전체 앱의 라이선스 목록을 대신하지 않습니다.
-공개 전환 시 다운로드 버튼, FAQ, 배포 상태와 소스 안내가 두 언어 모두 바뀝니다.
-
-앱 ZIP과 모델은 `assets/`에 넣지 마세요. 앱 파일은 향후 GitHub Releases 등의 다운로드 URL로
-연결하고, Pages에는 `dist/`의 정적 사이트만 올립니다.
-[GitHub Pages는 게시 사이트 용량을 1GB로 제한하며 상업적 이용에도 제한이 있습니다.](https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits)
-추후 유료 판매·결제 기능을 도입할 때는 호스팅 조건을 다시 확인하세요.
+[GitHub Pages 이용 제한](https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits)도
+참고하세요. 추후 유료 판매·결제 기능을 도입할 때는 호스팅 조건을 다시 확인하세요.
 
 ## 검사
 
@@ -97,7 +93,7 @@ npm run test:browser
 나머지 본문은 기기에 설치된 시스템 글꼴을 사용하며 해당 바이너리는 배포하지 않습니다.
 자세한 범위와 공식 근거는 [글꼴 검토 기록](docs/font-license-review.md)을 참고하세요.
 논문 모드 버튼은 제외 항목을 시각적으로 설명하는 예시이며 녹음된 음성은 바뀌지 않습니다.
-앱 자체의 배포 라이선스는 미정입니다. 이 저장소에도 임의로 MIT 라이선스를 부여하지 않았습니다.
+앱 자체 소스는 비공개이며 제3자 라이선스는 별도로 적용됩니다. 이 사이트 저장소에 MIT 라이선스를 부여하지 않았습니다.
 `package.json`의 `UNLICENSED`는 자체 사이트 코드에 대한 것으로, 함께 배포되는
 Pretendard 글꼴에는 별도의 OFL-1.1이 적용되며 이를 제한하거나 대체하지 않습니다.
 테스트용 `axe-core`(MPL-2.0), `playwright-core`(Apache-2.0)는 배포 결과물에 포함되지 않습니다.
@@ -110,8 +106,9 @@ Run `npm ci --ignore-scripts`, `npm test`, and `npm run test:browser` to verify 
 or set `CHROME_PATH` first). Every push to `main` and pull request runs verification; a manual
 **Verify and publish website** workflow run on `main` publishes to GitHub Pages after checks pass.
 
-The app download remains unavailable while signing, notarization and distribution-license review
-are pending. Public URLs and release flags live in `site.config.mjs`; never add signing secrets.
+Install and update the app exclusively through the [Mac App Store](https://apps.apple.com/app/id6817984584).
+GitHub hosts only website source and historical third-party source materials, not PDF Listener installers.
+Public links live in `site.config.mjs`; never add signing secrets. The repository’s Download ZIP is the website source, not the app.
 The recorded demo is original English text synthesized with the actual app. The paper-mode toggle
 illustrates filtering without changing the recording. Neither model weights nor app binaries are shipped here.
 

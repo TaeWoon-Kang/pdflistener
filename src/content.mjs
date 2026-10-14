@@ -13,7 +13,6 @@ export const content = {
     intro:
       "Listen to English research papers with a free app for Mac. Windows and iPhone versions are planned. Follow along and choose your own listening pace.",
     cta: "Listen to a sample",
-    secondary: "Made for your Mac",
     requirements: "Apple Silicon · macOS 26 or later",
     speechNote: "English speech · English & Korean interface",
     demoLabel: "INTERACTIVE PREVIEW",
@@ -115,29 +114,19 @@ export const content = {
       ],
       [
         "Can I download it now?",
-        "We’re preparing the next download. It will be available here once verification is complete.",
+        "Get PDF Listener free from the Mac App Store. Requires an Apple Silicon Mac with macOS 26 or later. App installation and updates are handled by the App Store.",
       ],
     ],
     releaseKicker: "NEXT UP: YOUR NEXT PAPER",
     releaseTitle: "A calmer way<br>through the reading list.",
     releaseCopy:
-      "We’re preparing the next version of PDF Listener for Mac.",
-    pending: "Download coming soon",
-    releaseDetail:
-      "The download will be available once verification is complete.",
-    publishedCopy: "PDF Listener for Mac is available for download.",
-    publishedFAQ:
-      "Download the Apple Silicon ZIP, unzip it, and move PDF Listener to Applications. Requires macOS 26 or later. The app is Developer ID signed and notarized by Apple. App terms and open-source materials are provided alongside the download.",
+      "Get PDF Listener free from the Mac App Store.",
     publishedStatus:
-      "Developer ID signed and notarized by Apple. This version is free to use, including for commercial work; the original application code remains proprietary. Third-party license rights remain unchanged.",
-    publishedSources:
-      "The app includes original notices, Python MPL-covered source, and pinned FFmpeg, Opus, Electron and selected Chromium sources. The source package includes a tested macOS arm64 FFmpeg rebuild recipe and local library replacement instructions. It is also available offline in the app. Individual component licenses remain applicable.",
-    ffmpegNotice: "This app uses FFmpeg libraries under LGPL-2.1-or-later. Their source is included in the source download above.",
+      "Distributed through the Mac App Store. The original application code remains proprietary. Individual third-party licenses and recipient rights continue to apply.",
     github: "Follow on GitHub",
-    download: "Download for Apple Silicon",
-    sourceDownload: "Corresponding source",
-    terms: "App terms",
-    checksumToggle: "Check file integrity",
+    download: "Download on the Mac App Store",
+    sourceDownload: "Previous web version: third-party source",
+    terms: "Previous web version: app terms",
     footer: "A little more listening. A little more understanding.",
     contact: "Contact",
     licenses: "Licenses & release notes",
@@ -146,16 +135,16 @@ export const content = {
     legalIntro:
       "PDF Listener uses open-source libraries and speech models. Their individual licenses continue to apply.",
     legalStatusTitle: "Current release status",
-    legalStatus:
-      "We’re preparing the next download. The app and its accompanying materials will be available after verification.",
     legalComponents: "Main app components",
     component: "Project",
     license: "License / notices",
     legalScope:
       "This is a summary of the app’s main components, not a complete inventory or a legal clearance. The app includes original notices, author and project links, and source materials. Its entire bundle is not licensed under MIT.",
     legalSourcesTitle: "Notices and source materials",
+    legacySourcesTitle: "Materials for the previous web version",
+    legacySources: "For users of the previous Electron-based web version 0.1.7, its third-party sources (including FFmpeg) and terms remain available below. This archive contains no PDF Listener installer and is not the source package for the current App Store app.",
     legalSources:
-      "The app includes original notices, model attribution and applicable source materials. The next download will include the corresponding source package and app terms.",
+      "Open License details in the app to read the original notices and model attribution, and save the applicable MPL source archive. These materials are available offline. The current App Store app uses macOS WebKit instead of Electron and does not bundle FFmpeg.",
     legalSiteTitle: "About this website",
     legalFontsTitle: "Website fonts",
     legalFonts:
@@ -166,7 +155,7 @@ export const content = {
     legalSite:
       "The headphone icon is the existing app asset. The screenshot is from the actual desktop app. The audio sample uses original demonstration text synthesized locally with Kokoro Heart; it does not reproduce a research paper. The site does not include model weights or app runtime binaries.",
     back: "Back to PDF Listener",
-    checked: "Status reviewed: 30 September 2026",
+    checked: "Distribution information updated: 14 October 2026",
   },
   ko: {
     title: "PDF Listener — Mac에서 듣는 영어 논문",
@@ -182,7 +171,6 @@ export const content = {
     intro:
       "영어 논문을 음성으로 읽어주는 Mac 전용 무료 앱입니다(추후 Windows 및 iPhone용 앱 출시 예정). 논문 모드로 그림·표 설명과 참고문헌은 건너뛰고, 원하는 문장부터 들을 수 있습니다.",
     cta: "목소리 미리 듣기",
-    secondary: "출시 안내 보기",
     requirements: "Apple Silicon · macOS 26 이상",
     speechNote: "영어 낭독 · 한국어 및 영어 인터페이스",
     demoLabel: "직접 눌러보는 미리보기",
@@ -283,28 +271,18 @@ export const content = {
       ],
       [
         "지금 다운로드할 수 있나요?",
-        "새 버전을 준비하고 있습니다. 검증이 끝나면 이곳에서 다운로드할 수 있습니다.",
+        "Mac App Store에서 무료로 받을 수 있습니다. macOS 26 이상이 설치된 Apple Silicon Mac이 필요하며, 설치와 업데이트는 App Store에서 진행합니다.",
       ],
     ],
     releaseKicker: "출시 안내",
     releaseTitle: "Mac을 위한<br>PDF Listener",
-    releaseCopy: "Mac용 PDF Listener의 새 버전을 준비하고 있습니다.",
-    pending: "다운로드 준비 중",
-    releaseDetail:
-      "검증이 끝나면 다운로드를 제공하겠습니다.",
-    publishedCopy: "Mac용 PDF Listener를 내려받을 수 있습니다.",
-    publishedFAQ:
-      "Apple Silicon용 ZIP을 내려받아 압축을 풀고 PDF Listener를 응용 프로그램 폴더로 옮겨 실행하세요. macOS 26 이상이 필요합니다. Developer ID 서명과 Apple 공증을 완료했으며, 이용 조건과 오픈소스 자료도 함께 제공합니다.",
+    releaseCopy: "Mac App Store에서 무료로 다운로드하세요.",
     publishedStatus:
-      "Developer ID 서명과 Apple 공증을 완료했습니다. 이 버전은 상업적 업무를 포함해 무료로 이용할 수 있으며, 앱 자체 소스는 비공개로 유지합니다. 제3자 라이선스의 권리는 그대로 적용됩니다.",
-    publishedSources:
-      "앱에는 원문 고지, Python MPL 대상 소스, 고정 버전의 FFmpeg·Opus·Electron 및 선택된 Chromium 소스가 포함됩니다. 소스 패키지에는 검증한 macOS arm64 FFmpeg 재빌드 방법과 라이브러리 교체 안내도 들어 있습니다. 앱에서도 인터넷 없이 내려받을 수 있으며, 각 구성요소의 라이선스가 그대로 적용됩니다.",
-    ffmpegNotice: "이 앱은 LGPL-2.1-or-later의 FFmpeg 라이브러리를 사용합니다. 해당 소스는 위 소스 다운로드에 포함됩니다.",
+      "Mac App Store를 통해 배포합니다. 앱 자체 소스는 비공개이며, 제3자 구성요소에는 각 라이선스와 이용자의 권리가 그대로 적용됩니다.",
     github: "GitHub에서 프로젝트 보기",
-    download: "Apple Silicon용 다운로드",
-    sourceDownload: "대응 소스",
-    terms: "앱 이용 조건",
-    checksumToggle: "파일 무결성 확인",
+    download: "Mac App Store에서 다운로드",
+    sourceDownload: "이전 웹 배포본의 오픈소스 자료",
+    terms: "이전 웹 배포본의 이용 조건",
     footer: "Mac에서 듣는 영어 논문",
     contact: "문의",
     licenses: "라이선스 및 배포 안내",
@@ -313,16 +291,16 @@ export const content = {
     legalIntro:
       "PDF Listener는 오픈소스 라이브러리와 음성 모델을 사용합니다. 각 구성요소에는 해당 라이선스가 적용됩니다.",
     legalStatusTitle: "현재 배포 상태",
-    legalStatus:
-      "새 버전을 준비하고 있습니다. 검증이 끝나면 앱과 관련 자료를 함께 제공하겠습니다.",
     legalComponents: "앱의 주요 구성요소",
     component: "프로젝트",
     license: "라이선스 및 고지",
     legalScope:
       "이 목록은 앱의 주요 구성을 요약한 것으로, 전체 의존성 목록이나 법률 적합성 인증은 아닙니다. 앱에는 원문 고지, 저자·프로젝트 링크와 소스 자료가 포함됩니다. 앱 전체가 MIT 라이선스인 것은 아닙니다.",
     legalSourcesTitle: "원문 고지와 소스 자료",
+    legacySourcesTitle: "이전 웹 배포본의 자료",
+    legacySources: "기존 Electron 기반 웹 배포본 0.1.7 이용자를 위해 FFmpeg 등을 포함한 오픈소스 자료와 당시 이용 조건을 제공합니다. PDF Listener 설치 파일은 포함되어 있지 않으며, 현재 App Store 앱의 소스 자료와는 다릅니다.",
     legalSources:
-      "앱에는 원문 고지, 모델 출처와 해당 소스 자료가 포함됩니다. 새 버전에도 대응 소스 패키지와 앱 이용 조건을 함께 제공합니다.",
+      "앱의 License details에서 원문 고지와 모델 출처를 확인하고, MPL 대상 소스 ZIP을 저장할 수 있습니다. 인터넷 없이도 이용할 수 있습니다. 현재 App Store 앱은 Electron 대신 macOS WebKit을 사용하며 FFmpeg를 포함하지 않습니다.",
     legalSiteTitle: "이 사이트의 자료",
     legalFontsTitle: "사이트 글꼴",
     legalFonts:
@@ -333,6 +311,6 @@ export const content = {
     legalSite:
       "헤드폰 아이콘은 기존 앱의 이미지이며, 스크린샷은 실제 데스크톱 앱 화면입니다. 음성 샘플은 직접 작성한 예문을 Kokoro Heart로 로컬 합성한 것으로, 다른 논문의 내용을 사용하지 않았습니다. 이 사이트에는 모델 가중치나 앱 실행 환경을 포함하지 않습니다.",
     back: "PDF Listener로 돌아가기",
-    checked: "상태 확인: 2026년 9월 30일",
+    checked: "배포 안내 수정일: 2026년 10월 14일",
   },
 };

@@ -17,22 +17,12 @@ export function validateConfig(value) {
     throw new Error("Site URL must not include a query or fragment");
   if (!value.url.endsWith("/")) throw new Error("Site URL must end with /");
   const r = value.release;
-  if (r.publicReady) {
-    if (
-      ![r.developerIDSigned, r.notarized, r.licenseReviewComplete].every(
-        (x) => x === true,
-      )
-    )
-      throw new Error(
-        "Finish signing, notarization and license verification before enabling the public download",
-      );
-    for (const key of ["downloadUrl", "sourceUrl", "termsUrl"]) https(r[key]);
-    if (!/^[a-f0-9]{64}$/.test(r.sha256))
-      throw new Error("Provide the verified download SHA-256");
-  } else if (r.downloadUrl)
-    throw new Error(
-      "Do not configure a public download URL while release verification is pending",
-    );
+  https(r.appStoreUrl);
+  if (r.appStoreUrl !== "https://apps.apple.com/app/id6817984584")
+    throw new Error("App downloads must use the PDF Listener App Store URL");
+  if (Object.hasOwn(r, "downloadUrl"))
+    throw new Error("Direct app downloads are no longer supported");
+  for (const key of ["legacySourceUrl", "legacyTermsUrl"]) https(r[key]);
 }
 export async function build() {
   validateConfig(config);

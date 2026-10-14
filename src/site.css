@@ -823,59 +823,14 @@ ol {
   color: var(--muted);
   margin: 20px auto 28px;
 }
-.release-pending {
-  font-size: 15px;
-  font-weight: 600;
+.release-actions {
   display: flex;
-  align-items: center;
   justify-content: center;
-  gap: 10px;
-}
-.release-pending span {
-  width: 7px;
-  height: 7px;
-  background: #687749;
-  border-radius: 50%;
-}
-.release-detail {
-  font-size: 12px;
-  color: #565e4d;
-  max-width: 440px;
-  margin: 10px auto 24px;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 .release-inner .compatibility {
   margin-top: 22px;
-}
-.release-links {
-  margin: 15px 0;
-  font-size: 14px;
-}
-.checksum-details {
-  max-width: 600px;
-  margin: 16px auto;
-}
-.checksum-details summary {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  min-height: 44px;
-  padding: 8px 12px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  font-size: 13px;
-  cursor: pointer;
-  list-style: none;
-}
-.checksum-details summary::-webkit-details-marker {
-  display: none;
-}
-.checksum-details[open] summary span {
-  transform: rotate(45deg);
-}
-.checksum {
-  font: 11px/1.6 monospace;
-  overflow-wrap: anywhere;
-  margin: 12px 0 0;
 }
 .footer {
   display: grid;

@@ -45,33 +45,25 @@ test("static English/Korean pages keep all local resources within a Pages projec
   }
 });
 
-test("public download cannot be advertised before release verification and valid source/terms URLs", () => {
+test("app installation links are restricted to the official App Store listing", () => {
   assert.doesNotThrow(() => validateConfig(config));
-  const ready = structuredClone(config);
-  Object.assign(ready.release, {
-    publicReady: true, developerIDSigned: false, notarized: false,
-    licenseReviewComplete: false, downloadUrl: "", sourceUrl: "", termsUrl: "", sha256: "",
-  });
-  assert.throws(() => validateConfig(ready), /verification/);
-  Object.assign(ready.release, {
-    developerIDSigned: true,
-    notarized: true,
-    licenseReviewComplete: true,
-  });
-  assert.throws(() => validateConfig(ready));
-  Object.assign(ready.release, {
-    downloadUrl: "https://example.org/app.zip",
-    sourceUrl: "https://example.org/source.zip",
-    termsUrl: "https://example.org/terms",
-    sha256: "a".repeat(64),
-  });
-  assert.doesNotThrow(() => validateConfig(ready));
-  ready.release.downloadUrl = "javascript:alert(1)";
-  assert.throws(() => validateConfig(ready), /HTTPS/);
-  const pending = structuredClone(config);
-  pending.release.publicReady = false;
-  pending.release.downloadUrl = "https://example.org/app.zip";
-  assert.throws(() => validateConfig(pending), /pending/);
+  for (const url of [
+    "https://github.com/example/repo/releases/download/v1/app.zip",
+    "https://apps.apple.com.evil.example/app/id6817984584",
+    "https://apps.apple.com/app/id123456789",
+    "javascript:alert(1)",
+    "https://user:secret@apps.apple.com/app/id6817984584",
+  ]) {
+    const invalid = structuredClone(config);
+    invalid.release.appStoreUrl = url;
+    assert.throws(() => validateConfig(invalid));
+  }
+  const legacy = structuredClone(config);
+  legacy.release.downloadUrl = "https://example.org/app.zip";
+  assert.throws(() => validateConfig(legacy), /Direct app downloads/);
+  const invalidSource = structuredClone(config);
+  invalidSource.release.legacySourceUrl = "http://example.org/source.zip";
+  assert.throws(() => validateConfig(invalidSource), /HTTPS/);
 });
 
 test("both languages have complete content and the demo uses valid original PCM audio", async () => {
@@ -99,37 +91,24 @@ test("both languages have complete content and the demo uses valid original PCM 
   assert.equal(end, sample.duration);
 });
 
-test("publishing updates download, FAQ and legal copy in both languages", async () => {
-  const ready = structuredClone(config);
-  Object.assign(ready.release, {
-    publicReady: true,
-    developerIDSigned: true,
-    notarized: true,
-    licenseReviewComplete: true,
-    downloadUrl: "https://example.org/app.zip",
-    sourceUrl: "https://example.org/source.zip",
-    termsUrl: "https://example.org/terms",
-    sha256: "a".repeat(64),
-  });
-  const sample = JSON.parse(
-    await fs.readFile(path.join(root, "assets/sample.json"), "utf8"),
-  );
+test("both languages direct installs to App Store and keep historical source separate", async () => {
+  const sample = JSON.parse(await fs.readFile(path.join(root, "assets/sample.json"), "utf8"));
   for (const lang of ["en", "ko"]) {
-    const home = render(lang, false, ready, sample),
-      legal = render(lang, true, ready, sample);
+    const home = render(lang, false, config, sample);
+    const legal = render(lang, true, config, sample);
     for (const html of [home, legal]) {
-      assert.ok(html.includes('href="https://example.org/app.zip"'));
-      assert.ok(html.includes('href="https://example.org/source.zip"'));
-      assert.ok(html.includes('href="https://example.org/terms"'));
-      assert.ok(!html.includes(content[lang].pending));
-      assert.ok(!html.includes(content[lang].releaseDetail));
-      assert.ok(html.includes(content[lang].ffmpegNotice));
+      assert.ok(html.includes(`href="${config.release.appStoreUrl}"`));
+      assert.doesNotMatch(html, /arm64\.zip|SHA-256:|Developer ID|notarized|공증|응용 프로그램 폴더/);
+      for (const [, href, label] of html.matchAll(/<a[^>]*href="([^"]+)"[^>]*>(.*?)<\/a>/gs)) {
+        if (label.includes(content[lang].download)) assert.equal(href, config.release.appStoreUrl);
+      }
     }
-    assert.ok(home.includes(content[lang].publishedFAQ));
-    assert.ok(!home.includes(content[lang].faqs.at(-1)[1]));
-    assert.ok(legal.includes(content[lang].publishedSources));
-    assert.ok(!legal.includes(content[lang].legalSources));
-    assert.ok(!legal.includes(content[lang].legalStatus));
+    assert.ok(home.includes(content[lang].faqs.at(-1)[1]));
+    assert.ok(!home.includes(config.release.legacySourceUrl));
+    assert.ok(legal.includes(`href="${config.release.legacySourceUrl}"`));
+    assert.ok(legal.includes(content[lang].legacySources));
+    assert.ok(legal.includes(content[lang].legalSources));
+    assert.ok(legal.includes(`href="${config.release.legacyTermsUrl}"`));
   }
 });
 
