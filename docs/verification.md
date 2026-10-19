@@ -1,50 +1,50 @@
 # Website verification
 
-Checked on 2026-09-29 with Node.js 26.3.0 and Google Chrome 154.0.8037.57 on macOS.
-The CI workflow uses Node.js 24 and Playwright's pinned Chromium on Ubuntu.
+Checked on 2026-10-19 with Node.js 26.3.0 and Google Chrome 155.0.8059.82 on macOS.
+CI uses Node.js 24 and the pinned Playwright Chromium on Ubuntu.
 
-Local results:
+## iPhone and iPad launch update
 
-- Seven Node tests pass: four generated pages, links at a `/pdflistener/` project prefix,
-  release configuration, complete translation keys, PCM audio, public-release copy,
-  deployment allowlist, original font/notice integrity with negative cases, and the local server's byte-range/path isolation behavior.
-- Real Chrome integration passes for English and Korean at 320, 390, 768, 1024 and
-  1440px, with no horizontal page overflow.
-- Playback, pause, jumping to a sentence, speed changes, paper-mode illustration,
-  FAQ, language links, skip-to-content keyboard navigation and navigation without
-  JavaScript pass.
-- axe WCAG 2 A/AA and 2.1 AA checks report zero violations in tested states:
-  both home pages at 390/1440px and both license pages at 320px.
-- No application console errors, failed local requests or external page requests
-  were observed in the integration test.
-- Chrome’s rendered-font inspection confirms `Pretendard SemiBold`, `isCustomFont: true`,
-  for every glyph in the requested Korean feature heading and the Korean legal heading.
-  The original WOFF2 and complete OFL notice match pinned upstream bytes.
-- Desktop/mobile screenshots were visually reviewed after the Korean typography change. The capture helper waits
-  for fonts, the lazy app screenshot and a paint before capturing a full page;
-  this fixed stale/repeated compositor content seen in an initial Chrome capture.
-- `npm audit --audit-level=high` reports zero vulnerabilities for the two pinned
-  development packages. Neither package is copied into the public output.
-- Output is 17 static files, about 1.95MB including the 16.9-second WAV sample.
-  The WAV uses original example text, rendered by the existing app with Kokoro Heart.
+- Apple's public lookup for app ID `6817984584`, in the US and Korean storefronts,
+  confirms the free universal iPhone/iPad app, version 1.0, minimum OS 18.0.
+  [App Store listing](https://apps.apple.com/app/id6817984584).
+- The site now describes Mac, iPhone and iPad availability. Mac requirements remain
+  Apple Silicon and macOS 26+; iPhone and iPad require iOS / iPadOS 18+.
+- All installation links use the official App Store listing. Historical third-party
+  source links remain on the license pages and are explicitly not app installers.
+- The existing Mac screenshot is labelled as a version 0.1.1 example, with a note
+  that the mobile layout differs. The original share-image composition now lists
+  all three platforms. No app binaries, model files or new dependencies were added.
+- Mac and mobile component summaries and in-app notice locations are distinguished.
+  Mobile entries were checked against the app's bundled voice-engine notices.
+  The privacy policy already covers all three platforms and cloud-file downloads.
 
-The checked product baseline is PDF Listener 0.1.1: Apple Silicon, macOS 26+,
-English speech, local processing, and no public-distribution clearance yet.
-The current app manifest reports ad-hoc signing, no notarization and
-`publicDistributionReady: false`. The site reflects that status. Changing site
-configuration cannot complete the app's signing or license verification.
+## Local checks
 
-Scope limits: automated browser checks do not certify every accessibility need,
-physical iPhone/Safari behavior, voice quality or legal compliance. Website tests
-do not repeat or replace the app's PDF/speech/runtime/source-coverage audits.
-Screenshot and machine-readable results are generated in ignored `test-results/`
-and are uploaded as verification artifacts by GitHub Actions.
+- All seven Node tests pass: six generated routes, project-subpath links/resources,
+  App Store-only installation configuration, matching translation keys, PCM sample,
+  deployment allowlist/size, original font and notice integrity (including rejection
+  cases), and preview server byte-range and path-isolation behavior.
+- Real Chrome integration passes in English and Korean at 320, 390, 768, 1024 and
+  1440px, without horizontal page overflow.
+- Playback, pause, sentence seeking, speed changes, paper-mode illustration, FAQ,
+  language navigation, keyboard skip links and navigation without JavaScript pass.
+- axe WCAG 2 A/AA and 2.1 AA checks report zero violations in the tested home,
+  license and privacy page states. No console errors, failed requests or external
+  page requests were observed.
+- Rendered-font checks confirm the original self-hosted Pretendard SemiBold for
+  Korean headings. Font bytes and the complete OFL notice remain unchanged.
+- English/Korean desktop and mobile screenshots and the share image were visually
+  reviewed. `npm audit --audit-level=high` reports zero vulnerabilities.
+- Public output: 19 static files, 1,968,507 bytes (about 1.88 MiB), below the 3 MiB
+  budget, including the existing original audio sample.
 
+## Scope and repeatability
 
-Public deployment for the Korean font change also passed:
-[Pages run 36636362169](https://github.com/TaeWoon-Kang/pdflistener/actions/runs/36636362169),
-commit `3e73b53a6df026aaf6941fd2ae7fba8b4a4d2cc8`.
-All 16 served files match the local output byte-for-byte (`.nojekyll` is an internal
-marker, not a served asset). The font and full notice return HTTP 200 with the
-expected MIME types. All 17 Korean h1/h2 elements across both public Korean pages
-render in the actual Pretendard SemiBold webfont. See [font review](font-license-review.md).
+Run `npm test` and `npm run test:browser` (with a supported Chromium executable).
+Ignored `test-results/` contains the current screenshots and machine-readable
+browser results. GitHub Actions repeats verification before a manual Pages deploy.
+
+These checks do not certify physical iPhone/Safari behavior, every accessibility
+need, voice quality or legal compliance, and do not replace app-release testing.
+For the original website font review, see [font review](font-license-review.md).

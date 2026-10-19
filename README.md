@@ -1,7 +1,7 @@
 # PDF Listener website
 
 PDF Listener의 한국어·영어 홍보 사이트입니다. 이 폴더 자체가 별도 Git 저장소이며,
-앱 프로젝트나 음성 모델 없이 독립적으로 빌드됩니다. **앱 설치와 업데이트는 [Mac App Store](https://apps.apple.com/app/id6817984584)에서만 제공합니다.**
+앱 프로젝트나 음성 모델 없이 독립적으로 빌드됩니다. **앱 설치와 업데이트는 [App Store](https://apps.apple.com/app/id6817984584)에서만 제공합니다.**
 이 저장소의 Download ZIP은 홍보 사이트 소스이며 앱 설치 파일이 아닙니다.
 
 ## 로컬에서 보기
@@ -49,7 +49,8 @@ PDF Listener 설치 파일을 제공하지 않습니다.
 이전 웹 배포본 이용자를 위한 제3자 대응 소스와 당시 이용 조건은 GitHub Releases에
 보존하고 라이선스 페이지에서 연결합니다. 이는 설치 파일이나 앱 자체 소스가 아니며,
 현재 App Store 빌드의 대응 소스로 표시하지 않습니다. 현재 빌드의 고지와 MPL 소스는
-앱의 License details에서 확인·저장할 수 있습니다.
+Mac 앱의 License details에서 확인·저장할 수 있습니다. iPhone·iPad의 고지는
+설정 → 오픈소스 라이선스에서 확인할 수 있습니다.
 
 [GitHub Pages 이용 제한](https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits)도
 참고하세요. 추후 유료 판매·결제 기능을 도입할 때는 호스팅 조건을 다시 확인하세요.
@@ -106,7 +107,7 @@ Run `npm ci --ignore-scripts`, `npm test`, and `npm run test:browser` to verify 
 or set `CHROME_PATH` first). Every push to `main` and pull request runs verification; a manual
 **Verify and publish website** workflow run on `main` publishes to GitHub Pages after checks pass.
 
-Install and update the app exclusively through the [Mac App Store](https://apps.apple.com/app/id6817984584).
+Install and update the app exclusively through the [App Store](https://apps.apple.com/app/id6817984584).
 GitHub hosts only website source and historical third-party source materials, not PDF Listener installers.
 Public links live in `site.config.mjs`; never add signing secrets. The repository’s Download ZIP is the website source, not the app.
 The recorded demo is original English text synthesized with the actual app. The paper-mode toggle

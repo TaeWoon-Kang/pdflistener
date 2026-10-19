@@ -9,7 +9,7 @@ export const escape = (value) =>
       ],
   );
 const arrow = '<span aria-hidden="true">↗</span>';
-const components = [
+const macComponents = [
   ["pdfminer.six", "MIT", "https://github.com/pdfminer/pdfminer.six"],
   [
     "Speechify string-tracker",
@@ -35,6 +35,13 @@ const components = [
   ["OpenSSL", "Apache-2.0", "https://github.com/openssl/openssl"],
 ];
 
+const mobileComponents = [
+  ["Kokoro-82M", "Apache-2.0 model notices", "https://huggingface.co/hexgrad/Kokoro-82M"],
+  ["KokoroCoreML", "Apache-2.0 + third-party notices", "https://github.com/Jud/kokoro-coreml"],
+  ["MisakiSwift (derived code)", "Apache-2.0", "https://github.com/mlalma/MisakiSwift"],
+  ["Swift BART G2P", "Apache-2.0 + third-party notices", "https://github.com/Jud/swift-bart-g2p"],
+];
+
 export function render(lang, legal, config, sample) {
   const t = { ...content[lang] };
   const isPrivacy = legal === "privacy";
@@ -47,8 +54,9 @@ export function render(lang, legal, config, sample) {
     ko: isPrivacy ? "ko/privacy/" : legal ? "ko/licenses/" : "ko/",
   };
   const canonical = new URL(routes[lang], config.url).href;
-  const languageLinks = `<div class="languages" aria-label="${t.language}">${["en", "ko"].map((l) => `<a href="${root + routes[l]}" lang="${l}" hreflang="${l}" ${l === lang ? 'aria-current="page"' : ""}>${l === "en" ? "EN" : "한국어"}</a>`).join("")}</div>`;
-  const brand = `<a class="brand" href="${home}" aria-label="PDF Listener"><img src="${root}assets/icon.png" alt="" width="40" height="40">PDF Listener<span class="brand-platform">/ Mac</span></a>`;
+  const languageLinks = `<div class="languages" role="group" aria-label="${t.language}">${["en", "ko"].map((l) => `<a href="${root + routes[l]}" lang="${l}" hreflang="${l}" ${l === lang ? 'aria-current="page"' : ""}>${l === "en" ? "EN" : "한국어"}</a>`).join("")}</div>`;
+  const brand = `<a class="brand" href="${home}" aria-label="PDF Listener"><img src="${root}assets/icon.png" alt="" width="40" height="40">PDF Listener<span class="brand-platform">/ Mac · iPhone · iPad</span></a>`;
+  const componentTable = (items) => `<div class="table-wrap"><table><thead><tr><th scope="col">${t.component}</th><th scope="col">${t.license}</th></tr></thead><tbody>${items.map(([name, license, url]) => `<tr><td><a href="${url}">${name} ${arrow}</a></td><td>${lang === "ko" ? license.replace("model notices", "모델 고지").replace("third-party notices", "제3자 고지").replace("nested component licenses", "포함 구성요소별 라이선스").replace("and other notices", "및 기타 고지") : license}</td></tr>`).join("")}</tbody></table></div>`;
   const appStoreLink = `<a class="button primary" href="${escape(config.release.appStoreUrl)}">${t.download} ${arrow}</a>`;
   const demo = `<div class="reader" id="listen" aria-labelledby="demo-title">
     <div class="reader-chrome"><span class="traffic" aria-hidden="true"><i></i><i></i><i></i></span><span>${t.demoFile}</span><span class="reader-mark" aria-hidden="true">◧</span></div>
@@ -67,15 +75,15 @@ export function render(lang, legal, config, sample) {
   const privacyPage = `<main id="main" class="legal-main wrap"><a class="text-link" href="../">← ${t.back}</a><p class="eyebrow">PDF LISTENER</p><h1>${policy.title}</h1><p class="lede">${policy.intro}</p><p class="muted">${policy.date}</p>${policy.sections.map(([heading, body]) => `<section><h2>${escape(heading)}</h2><p>${escape(body)}</p></section>`).join("")}<p><a href="https://www.apple.com/legal/privacy/">Apple Privacy Policy ${arrow}</a> · <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub Privacy Statement ${arrow}</a></p></main>`;
   const main = isPrivacy ? privacyPage : legal
     ? `<main id="main" class="legal-main wrap"><a class="text-link" href="../">← ${t.back}</a><p class="eyebrow">PDF LISTENER / ${t.licenses}</p><h1>${t.legalTitle}</h1><p class="lede">${t.legalIntro}</p>
-    <section class="legal-status"><h2>${t.legalStatusTitle}</h2><p>${escape(config.release.version)} · ${t.publishedStatus}</p>${appStoreLink}<p class="muted">${t.checked}</p></section>
-    <section><h2>${t.legalComponents}</h2><div class="table-wrap"><table><thead><tr><th scope="col">${t.component}</th><th scope="col">${t.license}</th></tr></thead><tbody>${components.map(([name, license, url]) => `<tr><td><a href="${url}">${name} ${arrow}</a></td><td>${lang === "ko" ? license.replace("model notices", "모델 고지").replace("third-party notices", "제3자 고지").replace("nested component licenses", "포함 구성요소별 라이선스").replace("and other notices", "및 기타 고지") : license}</td></tr>`).join("")}</tbody></table></div><p class="muted">${t.legalScope}</p></section>
+    <section class="legal-status"><h2>${t.legalStatusTitle}</h2><p>${t.publishedStatus}</p>${appStoreLink}<p class="muted">${t.checked}</p></section>
+    <section><h2>${t.legalComponents}</h2>${componentTable(macComponents)}</section><section><h2>${t.legalMobileComponents}</h2>${componentTable(mobileComponents)}<p class="muted">${t.legalScope}</p></section>
     <section><h2>${t.legalSourcesTitle}</h2><p>${t.legalSources}</p><h3>${t.legacySourcesTitle}</h3><p>${t.legacySources}</p><p><a href="${escape(config.release.legacySourceUrl)}">${t.sourceDownload}</a> · <a href="${escape(config.release.legacyTermsUrl)}">${t.terms}</a></p></section><section><h2>${t.legalSiteTitle}</h2><p>${t.legalSite}</p></section><section id="website-fonts"><h2>${t.legalFontsTitle}</h2><p>${t.legalFonts}</p><p><a href="${root}assets/fonts/OFL-Pretendard.txt">${t.fontLicense}</a><br><a href="https://github.com/orioncactus/pretendard">${t.fontSource} ${arrow}</a><br><a href="${root}assets/fonts/provenance.json">${t.fontProvenance}</a></p></section></main>`
     : `<main id="main">
-    <section class="hero wrap"><div class="hero-copy"><p class="eyebrow">PDF LISTENER <span>/</span> FOR MAC</p><h1>${t.headline}</h1><p class="hero-intro">${t.intro}</p><div class="hero-actions"><a class="button primary" data-listen href="#listen"><span aria-hidden="true">▷</span>${t.cta}</a><a class="text-link" href="${escape(config.release.appStoreUrl)}">${t.download} ${arrow}</a></div><p class="compatibility">${t.requirements}<br><span>${t.speechNote}</span></p><div class="hero-note"><span class="small-wave" aria-hidden="true">${[8, 18, 28, 14, 24, 34, 17, 10].map((h) => `<i class="bar-${h}"></i>`).join("")}</span>${t.eyebrow}</div></div>${demo}</section>
+    <section class="hero wrap"><div class="hero-copy"><p class="eyebrow">PDF LISTENER <span>/</span> MAC · IPHONE · IPAD</p><h1>${t.headline}</h1><p class="hero-intro">${t.intro}</p><div class="hero-actions"><a class="button primary" data-listen href="#listen"><span aria-hidden="true">▷</span>${t.cta}</a><a class="text-link" href="${escape(config.release.appStoreUrl)}">${t.download} ${arrow}</a></div><p class="compatibility">${t.requirements}<br><span>${t.speechNote}</span></p><div class="hero-note"><span class="small-wave" aria-hidden="true">${[8, 18, 28, 14, 24, 34, 17, 10].map((h) => `<i class="bar-${h}"></i>`).join("")}</span>${t.eyebrow}</div></div>${demo}</section>
     <div class="benefits wrap">${t.benefitLabels.map((x, i) => `<div><span class="benefit-number">0${i + 1}</span><div><h2>${x}</h2><p>${t.benefitDescriptions[i]}</p></div></div>`).join("")}</div>
     <section class="focus-section wrap section" id="features"><div class="section-intro"><p class="eyebrow">${t.focusKicker}</p><h2>${t.focusTitle}</h2><p>${t.focusIntro}</p></div><ol class="feature-list">${t.focusItems.map(([title, body], i) => `<li><span class="feature-number">0${i + 1}</span><div><h3>${title}</h3><p>${body}</p></div></li>`).join("")}</ol></section>
     <section class="screen-section section"><div class="wrap"><div class="screen-heading"><div><p class="eyebrow">${t.screenKicker}</p><h2>${t.screenTitle}</h2></div><p>${t.screenCopy}</p></div><figure class="app-shot"><img src="${root}assets/app-preview.png" alt="${t.screenshotAlt}" width="2200" height="1640" loading="lazy"><figcaption>${t.screenshotCaption}</figcaption></figure></div></section>
-    <section class="local-section wrap section"><div class="local-art" aria-hidden="true"><div class="local-orbit"></div><div class="local-orbit second"></div><div class="local-icon"><img src="${root}assets/icon.png" width="120" height="120" alt=""></div><span class="local-caption">PDF → VOICE<br><strong>ON YOUR MAC</strong></span></div><div><p class="eyebrow">${t.localKicker}</p><h2>${t.localTitle}</h2><p>${t.localCopy}</p><ul class="check-list">${t.localItems.map((x) => `<li><span aria-hidden="true">✓</span>${x}</li>`).join("")}</ul></div></section>
+    <section class="local-section wrap section"><div class="local-art" aria-hidden="true"><div class="local-orbit"></div><div class="local-orbit second"></div><div class="local-icon"><img src="${root}assets/icon.png" width="120" height="120" alt=""></div><span class="local-caption">PDF → VOICE<br><strong>ON YOUR DEVICE</strong></span></div><div><p class="eyebrow">${t.localKicker}</p><h2>${t.localTitle}</h2><p>${t.localCopy}</p><ul class="check-list">${t.localItems.map((x) => `<li><span aria-hidden="true">✓</span>${x}</li>`).join("")}</ul></div></section>
     <section class="workflow wrap section"><h2>${t.workflowTitle}</h2><ol>${t.steps.map(([a, b], i) => `<li><span class="step-number">0${i + 1}</span><h3>${a}</h3><p>${b}</p></li>`).join("")}</ol></section>
     <section class="faq-section wrap section" id="faq"><div><p class="eyebrow">FAQ</p><h2>${t.faqTitle}</h2></div><div class="faqs">${t.faqs.map(([q, a], i) => `<details${i === 0 ? " open" : ""}><summary>${q}<span aria-hidden="true">+</span></summary><p>${a}</p></details>`).join("")}</div></section>
     <section class="release-section" id="release"><div class="wrap release-inner"><img src="${root}assets/icon.png" width="72" height="72" alt=""><p class="eyebrow">${t.releaseKicker}</p><h2>${t.releaseTitle}</h2><p>${t.releaseCopy}</p><div class="release-actions">${appStoreLink}<a class="button secondary" href="${escape(config.repository)}">${t.github} ${arrow}</a></div><p class="compatibility">${t.requirements}</p></div></section>

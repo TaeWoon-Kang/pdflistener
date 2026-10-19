@@ -2,7 +2,7 @@ export const content = {
   en: {
     title: "PDF Listener — Give your papers a voice",
     description:
-      "Listen to English research papers on your Mac. Local speech, thoughtful paper filtering, and a reading experience that keeps you in the flow.",
+      "Listen to English research papers on Mac, iPhone, and iPad. Free on the App Store, with on-device speech and paper-mode filtering.",
     skip: "Skip to content",
     features: "Why PDF Listener",
     experience: "Take a listen",
@@ -11,9 +11,9 @@ export const content = {
     eyebrow: "A little space to think. A new way to read.",
     headline: "Give your papers<br><em>a voice.</em>",
     intro:
-      "Listen to English research papers with a free app for Mac. Windows and iPhone versions are planned. Follow along and choose your own listening pace.",
+      "Listen to English research papers with a free app for Mac, iPhone, and iPad. Follow along and choose your own listening pace.",
     cta: "Listen to a sample",
-    requirements: "Apple Silicon · macOS 26 or later",
+    requirements: "Mac: Apple Silicon · macOS 26+<br>iPhone: iOS 18+ · iPad: iPadOS 18+",
     speechNote: "English speech · English & Korean interface",
     demoLabel: "INTERACTIVE PREVIEW",
     demoTitle: "A little more room for ideas",
@@ -40,7 +40,7 @@ export const content = {
       "Paper mode is off. Author information and the figure caption are visible.",
     benefitLabels: [
       "Stay in the argument",
-      "Stay on your Mac",
+      "Keep it on your device",
       "Stay at your pace",
     ],
     benefitDescriptions: [
@@ -69,22 +69,22 @@ export const content = {
     screenKicker: "A PLACE TO READ AND LISTEN",
     screenTitle: "Your paper.<br>Your place in it.",
     screenCopy:
-      "Drop in a PDF and audio generation starts. Listen to the prepared sentences while the rest is being generated, with your place highlighted as you go.",
+      "Open a PDF and audio generation starts. Listen to the prepared sentences while the rest is being generated, with your place highlighted as you go.",
     screenshotAlt:
-      "Current PDF Listener desktop interface with paper mode, Heart voice, playback speed and sentence highlighting.",
-    screenshotCaption: "The current macOS app · version 0.1.1 preview",
-    localKicker: "ON YOUR OWN MACHINE",
+      "PDF Listener Mac interface with paper mode, Heart voice, playback speed and sentence highlighting.",
+    screenshotCaption: "Mac interface example · captured in version 0.1.1; the iPhone and iPad layout differs",
+    localKicker: "ON YOUR OWN DEVICE",
     localTitle: "Your reading stays<br>with you.",
     localCopy:
-      "PDF processing and speech generation run on your Mac, without sending your papers to an external server. Documents and generated audio stay on your Mac. The speech models are included, so the app works offline after installation.",
+      "PDF processing and speech generation run on your device, without sending your papers to a speech server. The speech models are included, so you can listen offline after installation. Download cloud-stored PDFs to your device before going offline.",
     localItems: [
       "No speech API key to manage",
-      "Apple GPU acceleration, with a CPU option",
-      "PDFs and generated audio stored on your Mac",
+      "Speech models included in the app",
+      "PDF processing and speech generation on your device",
     ],
     workflowTitle: "From PDF to listening, in three steps.",
     steps: [
-      ["Bring your paper", "Open a PDF with selectable text, up to 50 MB."],
+      ["Bring your paper", "Open a PDF with selectable text from your device."],
       [
         "Make it your own",
         "Choose a voice, review paper-mode exclusions, and set your reading preferences.",
@@ -97,8 +97,8 @@ export const content = {
     faqTitle: "A few things to know.",
     faqs: [
       [
-        "Which Macs are supported?",
-        "The current build supports Apple Silicon Macs (M1 or later) running macOS 26 or later. Windows and iPhone versions are planned. Intel Macs, Windows, and native mobile apps are not currently supported. This website works on mobile.",
+        "Which devices are supported?",
+        "Mac: Apple Silicon (M1 or later) with macOS 26 or later. iPhone: iOS 18 or later. iPad: iPadOS 18 or later. PDF Listener is free on the App Store for all three. Intel Macs and Windows are not currently supported.",
       ],
       [
         "Can it read Korean papers aloud?",
@@ -109,24 +109,28 @@ export const content = {
         "Use PDFs with selectable text. Image-only scans need OCR before import. Complex layouts can affect extraction and automatic filtering, so review the text and excluded items.",
       ],
       [
-        "Do my papers leave my Mac?",
-        "The desktop app processes PDFs and generates speech locally. Its models are included in the download. This promotional website has no PDF upload form or analytics scripts.",
+        "Do my papers leave my device?",
+        "PDF Listener processes PDFs and generates speech on your device. Its models are included in the download. Importing a cloud-only PDF requires a download from your storage provider first. This promotional website has no PDF upload form or analytics scripts.",
+      ],
+      [
+        "Can I listen with my iPhone or iPad locked?",
+        "Yes. Audio continues when you leave the reader or lock the screen. Use the lock-screen controls to pause, resume, or move between sentences. While a reading session is active, the library also shows playback controls.",
       ],
       [
         "Can I download it now?",
-        "Get PDF Listener free from the Mac App Store. Requires an Apple Silicon Mac with macOS 26 or later. App installation and updates are handled by the App Store.",
+        "Yes. Get PDF Listener free on Mac, iPhone, and iPad using the App Store link below. App installation and updates are handled exclusively by the App Store.",
       ],
     ],
     releaseKicker: "NEXT UP: YOUR NEXT PAPER",
     releaseTitle: "A calmer way<br>through the reading list.",
     releaseCopy:
-      "Get PDF Listener free from the Mac App Store.",
+      "Now available free on Mac, iPhone, and iPad. Get it on the App Store.",
     publishedStatus:
-      "Distributed through the Mac App Store. The original application code remains proprietary. Individual third-party licenses and recipient rights continue to apply.",
+      "Available for Mac, iPhone, and iPad through the App Store. The original application code remains proprietary. Individual third-party licenses and recipient rights continue to apply.",
     github: "Follow on GitHub",
-    download: "Download on the Mac App Store",
-    sourceDownload: "Previous web version: third-party source",
-    terms: "Previous web version: app terms",
+    download: "Download on the App Store",
+    sourceDownload: "Previous Mac direct download: third-party source",
+    terms: "Previous Mac direct download: app terms",
     footer: "A little more listening. A little more understanding.",
     contact: "Contact",
     licenses: "Licenses & release notes",
@@ -135,16 +139,17 @@ export const content = {
     legalIntro:
       "PDF Listener uses open-source libraries and speech models. Their individual licenses continue to apply.",
     legalStatusTitle: "Current release status",
-    legalComponents: "Main app components",
+    legalComponents: "Mac: main components",
+    legalMobileComponents: "iPhone and iPad: main components",
     component: "Project",
     license: "License / notices",
     legalScope:
-      "This is a summary of the app’s main components, not a complete inventory or a legal clearance. The app includes original notices, author and project links, and source materials. Its entire bundle is not licensed under MIT.",
+      "Components differ by platform. These tables summarize selected projects, not the complete inventory or a legal clearance. See the notices in your app for the applicable licenses and attribution. The app as a whole is not licensed under MIT.",
     legalSourcesTitle: "Notices and source materials",
-    legacySourcesTitle: "Materials for the previous web version",
-    legacySources: "For users of the previous Electron-based web version 0.1.7, its third-party sources (including FFmpeg) and terms remain available below. This archive contains no PDF Listener installer and is not the source package for the current App Store app.",
+    legacySourcesTitle: "Materials for the previous Mac direct download",
+    legacySources: "For users of the previous direct-download Mac version 0.1.7 (Electron), its third-party sources (including FFmpeg) and terms remain available below. This archive contains no PDF Listener installer and is not the source package for the current App Store app.",
     legalSources:
-      "Open License details in the app to read the original notices and model attribution, and save the applicable MPL source archive. These materials are available offline. The current App Store app uses macOS WebKit instead of Electron and does not bundle FFmpeg.",
+      "On Mac, open License details to read the notices and model attribution and save the applicable MPL source archive. The Mac App Store app uses macOS WebKit instead of Electron and does not bundle FFmpeg. On iPhone and iPad, open Settings → Open-source licenses for the notices and model attribution. Both platforms include their notices for offline access.",
     legalSiteTitle: "About this website",
     legalFontsTitle: "Website fonts",
     legalFonts:
@@ -155,23 +160,23 @@ export const content = {
     legalSite:
       "The headphone icon is the existing app asset. The screenshot is from the actual desktop app. The audio sample uses original demonstration text synthesized locally with Kokoro Heart; it does not reproduce a research paper. The site does not include model weights or app runtime binaries.",
     back: "Back to PDF Listener",
-    checked: "Distribution information updated: 14 October 2026",
+    checked: "Distribution information updated: 19 October 2026",
   },
   ko: {
-    title: "PDF Listener — Mac에서 듣는 영어 논문",
+    title: "PDF Listener — Mac·iPhone·iPad에서 듣는 영어 논문",
     description:
-      "영어 논문을 음성으로 읽어주는 Mac 전용 무료 앱입니다. 그림·표 설명과 참고문헌은 건너뛰고, 필요한 문장부터 원하는 속도로 들을 수 있습니다.",
+      "Mac·iPhone·iPad에서 영어 논문을 음성으로 읽어주는 무료 앱입니다. 그림·표 설명과 참고문헌은 건너뛰고, 필요한 문장부터 원하는 속도로 들을 수 있습니다.",
     skip: "본문으로 바로가기",
     features: "주요 기능",
     experience: "미리 듣기",
     release: "출시 안내",
     language: "사이트 언어 선택",
     eyebrow: "필요한 문장부터, 원하는 속도로",
-    headline: "Mac에서 듣는<br><em>영어 논문</em>",
+    headline: "내 기기에서 듣는<br><em>영어 논문</em>",
     intro:
-      "영어 논문을 음성으로 읽어주는 Mac 전용 무료 앱입니다(추후 Windows 및 iPhone용 앱 출시 예정). 논문 모드로 그림·표 설명과 참고문헌은 건너뛰고, 원하는 문장부터 들을 수 있습니다.",
+      "Mac·iPhone·iPad에서 사용할 수 있는 무료 앱입니다. 논문 모드로 그림·표 설명과 참고문헌은 건너뛰고, 영어 논문을 원하는 문장부터 들을 수 있습니다.",
     cta: "목소리 미리 듣기",
-    requirements: "Apple Silicon · macOS 26 이상",
+    requirements: "Mac: Apple Silicon · macOS 26 이상<br>iPhone: iOS 18 이상 · iPad: iPadOS 18 이상",
     speechNote: "영어 낭독 · 한국어 및 영어 인터페이스",
     demoLabel: "직접 눌러보는 미리보기",
     demoTitle: "영어 음성 미리 듣기",
@@ -184,7 +189,7 @@ export const content = {
     caption: "Figure 1. A small pause between ideas.",
     sampleLabel: "직접 작성한 예문 · 문장을 누르면 해당 부분부터 재생됩니다",
     play: "음성 샘플 재생",
-    pause: "음성 샘플 일시 정지",
+    pause: "음성 샘플 일시정지",
     seek: "샘플 재생 위치",
     speed: "재생 속도",
     voice: "Heart · 미국 영어",
@@ -192,17 +197,17 @@ export const content = {
       "실제 앱에서 만든 음성입니다. 이 예시에서 논문 모드를 바꾸면 화면 표시만 달라지며, 재생되는 음성은 같습니다.",
     audioFallback: "음성 샘플 다운로드",
     audioError:
-      "샘플을 재생하지 못했습니다. 다시 시도하거나 아래에서 음성을 내려받아주세요.",
+      "샘플을 재생하지 못했습니다. 다시 시도하거나 아래에서 음성을 내려받아 주세요.",
     filterOn: "저자 정보와 그림 설명을 숨겼습니다.",
     filterOff: "저자 정보와 그림 설명을 함께 표시합니다.",
     benefitLabels: [
       "본문 위주로 듣기",
-      "Mac 안에서 처리",
+      "내 기기에서 처리",
       "원하는 속도로 재생",
     ],
     benefitDescriptions: [
       "그림·표 설명과 참고문헌은 건너뜁니다.",
-      "PDF 처리와 음성 생성은 Mac에서 이루어집니다.",
+      "PDF 처리와 음성 생성은 기기 안에서 이루어집니다.",
       "속도를 조절하고 원하는 문장을 다시 들을 수 있습니다.",
     ],
     focusKicker: "논문 모드",
@@ -228,20 +233,20 @@ export const content = {
     screenCopy:
       "PDF를 열면 음성 생성이 시작됩니다. 준비된 문장부터 재생할 수 있고, 읽고 있는 문장은 화면에서 강조됩니다.",
     screenshotAlt:
-      "논문 모드, Heart 목소리, 재생 속도와 문장 강조 기능이 보이는 현재 PDF Listener macOS 앱 화면",
-    screenshotCaption: "현재 macOS 앱 화면 · 0.1.1 미리보기 버전",
+      "논문 모드, Heart 목소리, 재생 속도와 문장 강조 기능이 보이는 PDF Listener Mac 앱 화면",
+    screenshotCaption: "Mac 화면 예시 · 0.1.1 버전에서 촬영한 화면이며, iPhone·iPad의 화면 구성은 다릅니다",
     localKicker: "문서 보안",
-    localTitle: "보안 걱정 없이,<br>내 Mac에서",
+    localTitle: "보안 걱정 없이,<br>내 기기에서",
     localCopy:
-      "논문을 외부 서버로 보내지 않고, PDF 처리와 음성 생성을 Mac 안에서 수행합니다. 문서와 생성된 음성은 Mac에 저장됩니다. 음성 모델도 앱에 포함되어 있어 설치 후에는 인터넷 연결 없이 사용할 수 있습니다.",
+      "논문을 음성 합성 서버로 보내지 않고, PDF 처리와 음성 생성을 기기 안에서 수행합니다. 음성 모델도 앱에 포함되어 있어 설치 후에는 인터넷 연결 없이 들을 수 있습니다. 클라우드에 있는 PDF는 오프라인으로 전환하기 전에 기기에 내려받아 주세요.",
     localItems: [
       "별도의 음성 API 키 불필요",
-      "Apple GPU 가속 및 CPU 실행 지원",
-      "PDF와 생성한 음성을 내 Mac에 저장",
+      "음성 모델이 앱에 포함",
+      "PDF 처리와 음성 생성을 기기 안에서 수행",
     ],
     workflowTitle: "PDF를 듣기까지, 세 단계",
     steps: [
-      ["PDF 열기", "텍스트를 선택할 수 있는 50MB 이하의 PDF를 엽니다."],
+      ["PDF 열기", "기기나 파일 선택 화면에서 텍스트를 선택할 수 있는 PDF를 엽니다."],
       [
         "읽기 설정",
         "목소리를 선택하고, 논문 모드의 제외 항목과 괄호 읽기 옵션을 확인합니다.",
@@ -254,8 +259,8 @@ export const content = {
     faqTitle: "자주 묻는 질문",
     faqs: [
       [
-        "어떤 Mac에서 사용할 수 있나요?",
-        "현재는 macOS 26 이상이 설치된 Apple Silicon(M1 이상) Mac을 지원합니다. Windows 및 iPhone용 앱은 추후 출시 예정이며, Intel Mac은 지원하지 않습니다. 이 소개 사이트는 모바일에서도 볼 수 있습니다.",
+        "어떤 기기에서 사용할 수 있나요?",
+        "Mac은 macOS 26 이상의 Apple Silicon(M1 이상) 모델, iPhone은 iOS 18 이상, iPad는 iPadOS 18 이상을 지원합니다. 세 기기 모두 App Store에서 무료로 받을 수 있습니다. Intel Mac과 Windows는 현재 지원하지 않습니다.",
       ],
       [
         "한국어 논문도 읽어주나요?",
@@ -267,23 +272,27 @@ export const content = {
       ],
       [
         "논문이 외부 서버로 전송되나요?",
-        "PDF 처리와 음성 생성은 모두 Mac에서 이루어지며, 논문을 외부 서버로 보내지 않습니다. 필요한 모델도 앱에 포함되어 있습니다. 이 소개 사이트에는 PDF 업로드나 방문자 분석 기능이 없습니다.",
+        "PDF 처리와 음성 생성은 기기 안에서 이루어집니다. 클라우드에만 있는 PDF를 불러올 때는 저장 서비스에서 파일을 내려받아야 합니다. 음성 모델은 앱에 포함되어 있으며, 이 소개 사이트에는 PDF 업로드나 방문자 분석 기능이 없습니다.",
+      ],
+      [
+        "iPhone·iPad 화면을 잠가도 들을 수 있나요?",
+        "네. 읽기 화면에서 나가거나 화면을 잠가도 재생이 이어집니다. 잠금 화면에서 일시정지·재생·문장 이동을 할 수 있고, 재생 중인 항목이 있으면 보관함에도 재생 버튼이 표시됩니다.",
       ],
       [
         "지금 다운로드할 수 있나요?",
-        "Mac App Store에서 무료로 받을 수 있습니다. macOS 26 이상이 설치된 Apple Silicon Mac이 필요하며, 설치와 업데이트는 App Store에서 진행합니다.",
+        "네. 아래 App Store 링크에서 Mac·iPhone·iPad용 앱을 무료로 받을 수 있습니다. 앱 설치와 업데이트는 App Store를 통해서만 제공합니다.",
       ],
     ],
     releaseKicker: "출시 안내",
-    releaseTitle: "Mac을 위한<br>PDF Listener",
-    releaseCopy: "Mac App Store에서 무료로 다운로드하세요.",
+    releaseTitle: "이제 iPhone과<br>iPad에서도",
+    releaseCopy: "Mac·iPhone·iPad용 PDF Listener를 App Store에서 무료로 다운로드하세요.",
     publishedStatus:
-      "Mac App Store를 통해 배포합니다. 앱 자체 소스는 비공개이며, 제3자 구성요소에는 각 라이선스와 이용자의 권리가 그대로 적용됩니다.",
+      "Mac·iPhone·iPad용 앱을 App Store에서 배포합니다. 앱 자체 소스는 비공개이며, 제3자 구성요소에는 각 라이선스와 이용자의 권리가 그대로 적용됩니다.",
     github: "GitHub에서 프로젝트 보기",
-    download: "Mac App Store에서 다운로드",
+    download: "App Store에서 다운로드",
     sourceDownload: "이전 웹 배포본의 오픈소스 자료",
     terms: "이전 웹 배포본의 이용 조건",
-    footer: "Mac에서 듣는 영어 논문",
+    footer: "Mac·iPhone·iPad에서 듣는 영어 논문",
     contact: "문의",
     licenses: "라이선스 및 배포 안내",
     top: "맨 위로",
@@ -291,16 +300,17 @@ export const content = {
     legalIntro:
       "PDF Listener는 오픈소스 라이브러리와 음성 모델을 사용합니다. 각 구성요소에는 해당 라이선스가 적용됩니다.",
     legalStatusTitle: "현재 배포 상태",
-    legalComponents: "앱의 주요 구성요소",
+    legalComponents: "Mac 앱의 주요 구성요소",
+    legalMobileComponents: "iPhone·iPad 앱의 주요 구성요소",
     component: "프로젝트",
     license: "라이선스 및 고지",
     legalScope:
-      "이 목록은 앱의 주요 구성을 요약한 것으로, 전체 의존성 목록이나 법률 적합성 인증은 아닙니다. 앱에는 원문 고지, 저자·프로젝트 링크와 소스 자료가 포함됩니다. 앱 전체가 MIT 라이선스인 것은 아닙니다.",
+      "구성요소는 플랫폼에 따라 다릅니다. 이 목록은 주요 프로젝트를 요약한 것으로, 전체 의존성 목록이나 법률 적합성 인증은 아닙니다. 해당 앱의 고지에서 적용되는 라이선스와 출처를 확인해 주세요. 앱 전체가 MIT 라이선스인 것은 아닙니다.",
     legalSourcesTitle: "원문 고지와 소스 자료",
     legacySourcesTitle: "이전 웹 배포본의 자료",
     legacySources: "기존 Electron 기반 웹 배포본 0.1.7 이용자를 위해 FFmpeg 등을 포함한 오픈소스 자료와 당시 이용 조건을 제공합니다. PDF Listener 설치 파일은 포함되어 있지 않으며, 현재 App Store 앱의 소스 자료와는 다릅니다.",
     legalSources:
-      "앱의 License details에서 원문 고지와 모델 출처를 확인하고, MPL 대상 소스 ZIP을 저장할 수 있습니다. 인터넷 없이도 이용할 수 있습니다. 현재 App Store 앱은 Electron 대신 macOS WebKit을 사용하며 FFmpeg를 포함하지 않습니다.",
+      "Mac 앱의 License details에서 원문 고지와 모델 출처를 확인하고 MPL 대상 소스 ZIP을 저장할 수 있습니다. Mac App Store 앱은 Electron 대신 macOS WebKit을 사용하며 FFmpeg를 포함하지 않습니다. iPhone·iPad에서는 설정 → 오픈소스 라이선스에서 고지와 모델 출처를 확인할 수 있습니다. 각 앱의 고지는 인터넷 없이도 볼 수 있습니다.",
     legalSiteTitle: "이 사이트의 자료",
     legalFontsTitle: "사이트 글꼴",
     legalFonts:
@@ -311,6 +321,6 @@ export const content = {
     legalSite:
       "헤드폰 아이콘은 기존 앱의 이미지이며, 스크린샷은 실제 데스크톱 앱 화면입니다. 음성 샘플은 직접 작성한 예문을 Kokoro Heart로 로컬 합성한 것으로, 다른 논문의 내용을 사용하지 않았습니다. 이 사이트에는 모델 가중치나 앱 실행 환경을 포함하지 않습니다.",
     back: "PDF Listener로 돌아가기",
-    checked: "배포 안내 수정일: 2026년 10월 14일",
+    checked: "배포 안내 수정일: 2026년 10월 19일",
   },
 };

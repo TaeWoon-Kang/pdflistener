@@ -21,10 +21,12 @@ controls, readable content, 44px touch controls, reduced-motion support.
 Demonstration paper-mode filtering is illustrative; the audio is a real local
 Kokoro Heart output from original text, not speech generated in the website.
 
-Keep app support accurate: Apple Silicon, macOS 26+, English speech, Korean/
-English UI, selectable-text PDFs up to 50MB. Automatic exclusions need review.
-Public app download remains unavailable until release conditions are completed.
-Developer ID credentials belong to the future app-signing workflow, never here.
+Keep app support accurate: Mac requires Apple Silicon and macOS 26+; iPhone and
+iPad require iOS / iPadOS 18+. English speech, Korean/English UI, selectable-text
+PDFs. Automatic exclusions need review. The Mac screenshot is a version 0.1.1
+example, not a representation of the mobile interface. All three apps are free
+on the App Store; installation and updates are provided only there. Signing
+credentials and app binaries never belong in this site repository.
 
 Validation: build and link/resource checks, release-configuration checks,
 two-language real-Chrome checks, sample playback/seeking, paper toggle, FAQ,
